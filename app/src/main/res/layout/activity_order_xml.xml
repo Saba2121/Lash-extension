@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/orderServiceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:padding="5dp"
+        android:text="@string/order_summary"
+        android:textSize="55sp"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/confirmVisitTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/confirmVisitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/confirm_visit"
+        android:textAllCaps="true"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderServiceTextView" />
+
+    <TextView
+        android:id="@+id/orderServiceDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/date"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/orderServiceHour"
+        app:layout_constraintEnd_toStartOf="@id/orderServiceDateValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView" />
+
+    <TextView
+        android:id="@+id/orderServiceDateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/orderServiceHourValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/orderServiceDate"
+        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
+        tools:text="date" />
+
+
+    <TextView
+        android:id="@+id/orderServiceHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/hour"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/orderServiceType"
+        app:layout_constraintEnd_toStartOf="@id/orderServiceHourValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderServiceDate" />
+
+    <TextView
+        android:id="@+id/orderServiceHourValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/orderServiceTypeValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/orderServiceHour"
+        app:layout_constraintTop_toBottomOf="@id/orderServiceDateValue"
+        tools:text="hour" />
+
+    <TextView
+        android:id="@+id/orderServiceType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Effect type:"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
+        app:layout_constraintEnd_toStartOf="@id/orderServiceTypeValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderServiceHour" />
+
+    <TextView
+        android:id="@+id/orderServiceTypeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/orderServiceType"
+        app:layout_constraintTop_toBottomOf="@id/orderServiceHourValue"
+        tools:text="effect type 1:1" />
+
+    <TextView
+        android:id="@+id/confirmationOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/confirm_order"
+        android:textAllCaps="true"
+        android:textColor="@color/purple_200"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/lastBtnOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView" />
+
+    <Button
+        android:id="@+id/lastBtnOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/order"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmationOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

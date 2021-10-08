@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Lash_extension</string>
+    <string name="welcome_button">Start</string>
+    <string name="eyelash_styling_services">Eyelash styling services</string>
+    <string name="natural_effect">Natural effect</string>
+    <string name="light_volume">Light volume</string>
+    <string name="kim_effect">Kim effect</string>
+    <string name="mega_volume">Mega volume</string>
+    <string name="gallery">Gallery</string>
+    <string name="go_back">Go back</string>
+    <string name="contact">Contact</string>
+    <string name="choose_style">Choose the style you like</string>
+    <string name="make_booking">Make a booking</string>
+    <string name="opening_hours">Opening hours</string>
+    <string name="phone_number">Phone number</string>
+    <string name="number_number">(+48)606871226</string>
+    <string name="email_">Email</string>
+    <string name="email_email">sabina-slosarczyk@o2.pl</string>
+    <string name="days_and_hours">Monday - Friday 08:00 - 20:00</string>
+    <string name="select_a_date">Select date and hour</string>
+    <string name="save_date"> </string>
+    <string name="save_hour"> </string>
+    <string name="book_now">book now</string>
+    <string name="mon">save my date</string>
+    <string name="eight">08:00</string>
+    <string name="ten">10:00</string>
+    <string name="twelve">12:00</string>
+    <string name="two">14:00</string>
+    <string name="four">16:00</string>
+    <string name="six">18:00</string>
+    <string name="button">button</string>
+    <string name="order_summary">Order summary</string>
+    <string name="confirm_visit">Your visit is confirmed on this day and time:</string>
+    <string name="order">Order</string>
+    <string name="personal_details">Please enter your personal details</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last name</string>
+    <string name="number_phone">Phone number</string>
+    <string name="book_appointment">Book appointment</string>
+    <string name="zapraszamy">Wizyta umówiona, zapraszamy</string>
+    <string name="date">Date:</string>
+    <string name="hour">Hour:</string>
+    <string name="confirm_order">if the data is correct, click order</string>
+
+
+</resources>
