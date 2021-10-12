@@ -31,7 +31,7 @@
     <string name="button">button</string>
     <string name="order_summary">Order summary</string>
     <string name="confirm_visit">Your visit is confirmed on this day and time:</string>
-    <string name="order">Order</string>
+    <string name="submit">Submit</string>
     <string name="personal_details">Please enter your personal details</string>
     <string name="name">Name</string>
     <string name="last_name">Last name</string>
@@ -40,7 +40,7 @@
     <string name="zapraszamy">Wizyta umówiona, zapraszamy</string>
     <string name="date">Date:</string>
     <string name="hour">Hour:</string>
-    <string name="confirm_order">if the data is correct, click order</string>
+    <string name="confirm_order">if the data is correct, click submit</string>
 
 
 </resources>

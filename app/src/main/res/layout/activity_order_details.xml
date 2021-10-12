@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -134,20 +135,20 @@
         android:textAllCaps="true"
         android:textColor="@color/purple_200"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/lastBtnOrder"
+        app:layout_constraintBottom_toTopOf="@id/submitBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView" />
 
     <Button
-        android:id="@+id/lastBtnOrder"
+        android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="75dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:padding="5dp"
-        android:text="@string/order"
+        android:text="@string/submit"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="35sp"

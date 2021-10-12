@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.saba.lashextension.PersonActivity;
 import com.saba.lashextension.R;
 
 
@@ -22,7 +21,6 @@ public class CalendarActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-
 
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
@@ -56,14 +54,15 @@ public class CalendarActivity extends AppCompatActivity {
         });
         Button bookNow = findViewById(R.id.bookNow);
         bookNow.setOnClickListener(v ->
-                openPersonActivity(effectType));
+                openPersonActivity(effectType, dateString, timeString));
 
     }
 
-    public void openPersonActivity(EffectType effectType) {
+    public void openPersonActivity(EffectType effectType, String dateString, String timeString) {
         Intent intent = new Intent(this, PersonActivity.class);
         intent.putExtra("effectType", effectType.name());
-
+        intent.putExtra("date", dateString);
+        intent.putExtra("time", timeString);
         startActivity(intent);
     }
 

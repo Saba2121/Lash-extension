@@ -113,7 +113,6 @@ public class ChooseServiceActivity extends AppCompatActivity implements OnChoose
     public void openCalendarActivity(EffectType effectType) {
         Intent intent = new Intent(this, CalendarActivity.class);
         intent.putExtra("effectType", effectType.name());
-
         startActivity(intent);
 
     }

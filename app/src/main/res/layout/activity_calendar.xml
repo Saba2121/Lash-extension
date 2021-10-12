@@ -36,7 +36,10 @@
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="298dp"
-            android:firstDayOfWeek="2">
+            android:firstDayOfWeek="2"
+            android:theme="@style/CalenderViewCustom"
+            android:dateTextAppearance="@style/CalenderViewDateCustomText"
+            android:weekDayTextAppearance="@style/CalenderViewWeekCustomText">
 
         </CalendarView>
 
