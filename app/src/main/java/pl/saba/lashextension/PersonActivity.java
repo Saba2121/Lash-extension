@@ -20,6 +20,7 @@ public class PersonActivity extends AppCompatActivity {
 
         String dateString = getIntent().getStringExtra("date");
         String timeString = getIntent().getStringExtra("time");
+        String variant = getIntent().getStringExtra("variant");
 
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
@@ -29,18 +30,19 @@ public class PersonActivity extends AppCompatActivity {
         EditText phoneNumber = findViewById(com.saba.lashextension.R.id.numberPhoneEditText);
         Button appointment = findViewById(com.saba.lashextension.R.id.appointmentBtn);
         appointment.setOnClickListener(v -> {
-            openOrderDetailsActivity(effectType, dateString, timeString);
+            openOrderDetailsActivity(effectType, dateString, timeString, variant);
 
         });
     }
 
-    public void openOrderDetailsActivity(EffectType effectType, String dateString, String timeString) {
+    public void openOrderDetailsActivity(EffectType effectType, String dateString, String timeString, String variant) {
         Intent intent = new Intent(this, OrderDetailsActivity.class);
         intent.putExtra("effectType", effectType.name());
         System.out.println(dateString);
         System.out.println(timeString);
         intent.putExtra("date", dateString);
         intent.putExtra("time", timeString);
+        intent.putExtra("variant", variant);
         startActivity(intent);
     }
 }

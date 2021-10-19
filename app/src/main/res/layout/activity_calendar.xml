@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearL"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/markYourDateAndHour"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="cursive"
@@ -20,149 +20,406 @@
         android:textColor="@color/purple_500"
         android:textSize="41sp"
         android:textStyle="bold"
-        android:theme="@style/TextStyle" />
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/monthAndYearTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
-        android:layout_weight="1"
-        android:background="@drawable/button"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/monthAndYearTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/month_and_year"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintEnd_toStartOf="@id/rightBtn"
+        app:layout_constraintStart_toEndOf="@id/leftBtn"
+        app:layout_constraintTop_toBottomOf="@id/markYourDateAndHour" />
 
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="298dp"
-            android:firstDayOfWeek="2"
-            android:theme="@style/CalenderViewCustom"
-            android:dateTextAppearance="@style/CalenderViewDateCustomText"
-            android:weekDayTextAppearance="@style/CalenderViewWeekCustomText">
+    <Button
+        android:id="@+id/leftBtn"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/left"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintEnd_toStartOf="@id/monthAndYearTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/markYourDateAndHour"
+        tools:text="--" />
 
-        </CalendarView>
+    <Button
+        android:id="@+id/rightBtn"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/left"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/monthAndYearTextView"
+        app:layout_constraintTop_toBottomOf="@id/markYourDateAndHour"
+        tools:text="-->" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/monTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/mon"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/monBtn"
+        app:layout_constraintEnd_toStartOf="@id/tueTextView"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/tue"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/tueBtn"
+        app:layout_constraintEnd_toStartOf="@id/wedTextView"
+        app:layout_constraintStart_toEndOf="@id/monTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView" />
 
-        <TextView
-            android:id="@+id/saveDate"
-            android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="cursive"
-            android:gravity="center"
-            android:text=" "
-            android:textAllCaps="false"
-            android:textSize="38sp" />
+    <TextView
+        android:id="@+id/wedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/wed"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/wedBtn"
+        app:layout_constraintEnd_toStartOf="@id/thuTextView"
+        app:layout_constraintStart_toEndOf="@id/tueTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView" />
 
-        <TextView
-            android:id="@+id/saveHour"
-            android:layout_width="190dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="50dp"
-            android:fontFamily="cursive"
-            android:gravity="center"
-            android:text=" "
-            android:textAllCaps="false"
-            android:textSize="38sp" />
+    <TextView
+        android:id="@+id/thuTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/thu"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/thuBtn"
+        app:layout_constraintEnd_toStartOf="@id/friTextView"
+        app:layout_constraintStart_toEndOf="@id/wedTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/friTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/fri"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/friBtn"
+        app:layout_constraintEnd_toStartOf="@id/satTextView"
+        app:layout_constraintStart_toEndOf="@id/thuTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/satTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/sat"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/satBtn"
+        app:layout_constraintEnd_toStartOf="@id/sunTextView"
+        app:layout_constraintStart_toEndOf="@id/friTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView" />
 
-        <Button
-            android:id="@+id/eight"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:text="@string/eight"
-            android:textSize="27sp"
-            android:theme="@style/ButtonStyle" />
+    <TextView
+        android:id="@+id/sunTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/sun"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/TextStyle"
+        app:layout_constraintBottom_toTopOf="@id/sunBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/satTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView" />
 
-        <Button
-            android:id="@+id/ten"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:gravity="center"
-            android:text="@string/ten"
-            android:textSize="27sp"
-            android:theme="@style/ButtonStyle" />
+    <Button
+        android:id="@+id/monBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="@string/monday"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/saveDate"
+        app:layout_constraintEnd_toStartOf="@id/tueBtn"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monTextView" />
 
-        <Button
-            android:id="@+id/twelve"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="@string/twelve"
-            android:textSize="27sp"
-            android:theme="@style/ButtonStyle" />
+    <Button
+        android:id="@+id/tueBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/tuesday"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/saveDate"
+        app:layout_constraintEnd_toStartOf="@id/wedBtn"
+        app:layout_constraintStart_toEndOf="@id/monBtn"
+        app:layout_constraintTop_toBottomOf="@id/tueTextView" />
 
-    </RelativeLayout>
+    <Button
+        android:id="@+id/wedBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/wednesday"
+        android:textSize="13sp"
+        android:textColor="@color/green"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/saveDate"
+        app:layout_constraintEnd_toStartOf="@id/thuBtn"
+        app:layout_constraintStart_toEndOf="@id/tueBtn"
+        app:layout_constraintTop_toBottomOf="@id/wedTextView" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/thuBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/thursday"
+        android:textSize="13sp"
+        android:textColor="@color/green"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/saveDate"
+        app:layout_constraintEnd_toStartOf="@id/friBtn"
+        app:layout_constraintStart_toEndOf="@id/wedBtn"
+        app:layout_constraintTop_toBottomOf="@id/thuTextView" />
 
-        <Button
-            android:id="@+id/two"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:text="@string/two"
-            android:textSize="27sp"
-            android:theme="@style/ButtonStyle" />
+    <Button
+        android:id="@+id/friBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:text="@string/friday"
+        android:textSize="13sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/saveDate"
+        app:layout_constraintEnd_toStartOf="@id/satBtn"
+        app:layout_constraintStart_toEndOf="@id/thuBtn"
+        app:layout_constraintTop_toBottomOf="@id/friTextView" />
 
-        <Button
-            android:id="@+id/four"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:gravity="center"
-            android:text="@string/four"
-            android:textSize="27sp"
-            android:theme="@style/ButtonStyle" />
+    <Button
+        android:id="@+id/satBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/saturday"
+        android:textSize="13sp"
+        android:textColor="@color/green"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/saveDate"
+        app:layout_constraintEnd_toStartOf="@id/sunBtn"
+        app:layout_constraintStart_toEndOf="@id/friBtn"
+        app:layout_constraintTop_toBottomOf="@id/satTextView" />
 
-        <Button
-            android:id="@+id/six"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="@string/six"
-            android:textSize="27sp"
-            android:theme="@style/ButtonStyle" />
+    <Button
+        android:id="@+id/sunBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="@string/sunday"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/saveDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/satBtn"
+        app:layout_constraintTop_toBottomOf="@id/sunTextView" />
 
-    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/saveDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text=" "
+        android:textAllCaps="false"
+        android:textSize="38sp"
+        android:textColor="@color/purple_700"
+        app:layout_constraintBottom_toTopOf="@id/eight"
+        app:layout_constraintEnd_toStartOf="@id/saveHour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/satBtn"
+        tools:text="Save date" />
+
+    <TextView
+        android:id="@+id/saveHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text=" "
+        android:textAllCaps="false"
+        android:textColor="@color/purple_700"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toTopOf="@id/twelve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/saveDate"
+        app:layout_constraintTop_toBottomOf="@id/satBtn"
+        tools:text="Save hour" />
+
+
+    <Button
+        android:id="@+id/eight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/eight"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/two"
+        app:layout_constraintEnd_toStartOf="@id/ten"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saveDate"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/ten"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/four"
+        app:layout_constraintEnd_toStartOf="@id/twelve"
+        app:layout_constraintStart_toEndOf="@id/eight"
+        app:layout_constraintTop_toBottomOf="@id/saveDate" />
+
+    <Button
+        android:id="@+id/twelve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/twelve"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/six"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ten"
+        app:layout_constraintTop_toBottomOf="@id/saveDate" />
+
+
+    <Button
+        android:id="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/two"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/bookNow"
+        app:layout_constraintEnd_toStartOf="@id/four"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eight"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/four"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/bookNow"
+        app:layout_constraintEnd_toStartOf="@id/six"
+        app:layout_constraintStart_toEndOf="@id/two"
+        app:layout_constraintTop_toBottomOf="@id/ten" />
+
+    <Button
+        android:id="@+id/six"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/six"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/bookNow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/four"
+        app:layout_constraintTop_toBottomOf="@id/twelve" />
+
 
     <Button
         android:id="@+id/bookNow"
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/book_now"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="27sp"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/four" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

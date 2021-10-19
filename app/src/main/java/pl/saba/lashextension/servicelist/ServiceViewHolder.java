@@ -16,6 +16,7 @@ public class ServiceViewHolder extends RecyclerView.ViewHolder {
     private final TextView servicePriceTextView;
     private final RadioButton serviceRadioBtn;
     private final TextView serviceTimeTextView;
+    private final TextView serviceVariant;
 
     public ServiceViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -25,6 +26,7 @@ public class ServiceViewHolder extends RecyclerView.ViewHolder {
         servicePriceTextView = itemView.findViewById(R.id.servicePrice);
         serviceRadioBtn = itemView.findViewById(R.id.serviceRadioBtn);
         serviceTimeTextView = itemView.findViewById(R.id.serviceTime);
+        serviceVariant = itemView.findViewById(R.id.serviceVariant);
     }
 
     public TextView getServiceNameTextView() {
@@ -45,6 +47,10 @@ public class ServiceViewHolder extends RecyclerView.ViewHolder {
 
     public TextView getServiceTimeTextView() {
         return this.serviceTimeTextView;
+    }
+
+    public TextView getServiceVariant() {
+        return this.serviceVariant;
     }
 }
 

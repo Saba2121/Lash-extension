@@ -18,9 +18,9 @@ import java.util.List;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
 
-    private List<ServiceDto> serviceList = new ArrayList<>();
+    private List<StyleDto> serviceList = new ArrayList<>();
     private Context context;
-    private ServiceDto actual = null;
+    private StyleDto actual = null;
     private OnChooseServiceDtoListener onChooseServiceDtoListener;
 
 
@@ -45,7 +45,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ServiceViewHolder holder, int position) {
 
-        ServiceDto service = serviceList.get(position);
+        StyleDto service = serviceList.get(position);
         String serviceName = service.getServiceName();
         holder.getServiceNameTextView().setText(serviceName);
         Drawable serviceImage = service.getServiceImage();
@@ -55,6 +55,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
         RadioButton serviceRadioBtn = holder.getServiceRadioBtn();
         String serviceTime = service.getServiceTime();
         holder.getServiceTimeTextView().setText(serviceTime);
+        String serviceVariant = service.getServiceVariant();
+        holder.getServiceVariant().setText(serviceVariant);
 
         if (service.equals(actual)) {
             serviceRadioBtn.setChecked(true);
@@ -85,7 +87,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
         return serviceList.size();
     }
 
-    public void setServiceList(List<ServiceDto> serviceList) {
+    public void setServiceList(List<StyleDto> serviceList) {
         this.serviceList = serviceList;
 
     }

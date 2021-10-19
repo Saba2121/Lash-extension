@@ -45,7 +45,7 @@
 
         <TextView
             android:id="@+id/serviceTime"
-            android:layout_width="85dp"
+            android:layout_width="77dp"
             android:layout_height="50dp"
             android:layout_marginStart="285dp"
             android:layout_marginTop="70dp"
@@ -53,6 +53,18 @@
             android:textColor="@color/purple_200"
             android:textSize="15sp"
             tools:text="Approx.120 min" />
+
+        <TextView
+            android:id="@+id/serviceVariant"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="365dp"
+            android:layout_marginTop="85dp"
+            android:gravity="center"
+            android:textColor="@color/purple_200"
+            android:textSize="11sp"
+            tools:text="Variant" />
+
 
         <RadioButton
             android:id="@+id/serviceRadioBtn"

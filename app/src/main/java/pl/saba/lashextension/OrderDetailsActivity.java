@@ -20,6 +20,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         TextView value = findViewById(R.id.orderServiceTypeValue);
         TextView valueDate = findViewById(R.id.orderServiceDateValue);
         TextView valueTime = findViewById(R.id.orderServiceHourValue);
+        TextView valueVariant = findViewById(R.id.serviceVariant);
 
 
         String effectTypeString = getIntent().getStringExtra("effectType");
@@ -30,6 +31,9 @@ public class OrderDetailsActivity extends AppCompatActivity {
 
         String time = getIntent().getStringExtra("time");
         valueTime.setText(time);
+
+        String variant = getIntent().getStringExtra("variant");
+        valueVariant.setText(variant);
 
 
         Button submit = findViewById(R.id.submitBtn);

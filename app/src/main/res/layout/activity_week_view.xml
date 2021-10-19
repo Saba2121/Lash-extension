@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+
+    <TextView
+        android:id="@+id/monthAndYearTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@id/tueTextView"
+        app:layout_constraintEnd_toStartOf="@id/rightTextView"
+        app:layout_constraintStart_toEndOf="@id/leftTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Oct 2021" />
+
+    <TextView
+        android:id="@+id/leftTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/monTextView"
+        app:layout_constraintEnd_toStartOf="@id/monthAndYearTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="--" />
+
+    <TextView
+        android:id="@+id/rightTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/thuTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/monthAndYearTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409"
+        tools:text="-->" />
+
+    <TextView
+        android:id="@+id/monTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@id/monBtn"
+        app:layout_constraintEnd_toStartOf="@id/tueTextView"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        tools:text="Mon" />
+
+    <Button
+        android:id="@+id/monBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="15dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/satTextView"
+        app:layout_constraintEnd_toStartOf="@id/tueBtn"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monTextView"
+        tools:text="15" />
+
+    <TextView
+        android:id="@+id/tueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@id/tueBtn"
+        app:layout_constraintEnd_toStartOf="@id/wedTextView"
+        app:layout_constraintStart_toEndOf="@id/monTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        tools:text="Tue" />
+
+    <Button
+        android:id="@+id/tueBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/satTextView"
+        app:layout_constraintEnd_toStartOf="@id/wedBtn"
+        app:layout_constraintStart_toEndOf="@id/monBtn"
+        app:layout_constraintTop_toBottomOf="@id/tueTextView"
+        tools:text="16" />
+
+    <TextView
+        android:id="@+id/wedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@id/wedBtn"
+        app:layout_constraintEnd_toStartOf="@id/thuTextView"
+        app:layout_constraintStart_toEndOf="@id/tueTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        tools:text="Wed" />
+
+    <Button
+        android:id="@+id/wedBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/satTextView"
+        app:layout_constraintEnd_toStartOf="@id/thuBtn"
+        app:layout_constraintStart_toEndOf="@id/tueBtn"
+        app:layout_constraintTop_toBottomOf="@id/wedTextView"
+        tools:text="17" />
+
+    <TextView
+        android:id="@+id/thuTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@id/thuBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/wedTextView"
+        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        tools:text="Thu" />
+
+    <Button
+        android:id="@+id/thuBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/satTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/wedBtn"
+        app:layout_constraintTop_toBottomOf="@id/thuTextView"
+        tools:text="18" />
+
+
+    <TextView
+        android:id="@+id/friTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:gravity="center"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@id/friBtn"
+        app:layout_constraintEnd_toStartOf="@id/satTextView"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tueBtn"
+        tools:text="Fri" />
+
+    <Button
+        android:id="@+id/friBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="60dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/saveHour"
+        app:layout_constraintEnd_toStartOf="@id/satBtn"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/friTextView"
+        tools:text="19" />
+
+    <TextView
+        android:id="@+id/satTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@id/satBtn"
+        app:layout_constraintEnd_toStartOf="@id/sunTextView"
+        app:layout_constraintStart_toEndOf="@id/friTextView"
+        app:layout_constraintTop_toBottomOf="@id/tueBtn"
+        tools:text="Sat" />
+
+    <Button
+        android:id="@+id/satBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/saveHour"
+        app:layout_constraintEnd_toStartOf="@id/sunBtn"
+        app:layout_constraintStart_toEndOf="@id/friBtn"
+        app:layout_constraintTop_toBottomOf="@id/satTextView"
+        tools:text="20" />
+
+    <TextView
+        android:id="@+id/sunTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="75dp"
+        android:gravity="center"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@id/sunBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/satTextView"
+        app:layout_constraintTop_toBottomOf="@id/wedBtn"
+        tools:text="Sun" />
+
+    <Button
+        android:id="@+id/sunBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/saveHour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/satBtn"
+        app:layout_constraintTop_toBottomOf="@id/sunTextView"
+        tools:text="21" />
+
+    <TextView
+        android:id="@+id/saveDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/save_date"
+        android:textAllCaps="false"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toTopOf="@id/eight"
+        app:layout_constraintEnd_toStartOf="@id/saveHour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/friBtn"
+        tools:text="save date" />
+
+    <TextView
+        android:id="@+id/saveHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/save_hour"
+        android:textAllCaps="false"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toTopOf="@id/twelve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/saveDate"
+        app:layout_constraintTop_toBottomOf="@id/sunBtn"
+        tools:text="save hour" />
+
+
+    <Button
+        android:id="@+id/eight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/eight"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/two"
+        app:layout_constraintEnd_toStartOf="@id/ten"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saveDate" />
+
+    <Button
+        android:id="@+id/ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/ten"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/four"
+        app:layout_constraintEnd_toStartOf="@id/twelve"
+        app:layout_constraintStart_toEndOf="@id/eight"
+        app:layout_constraintTop_toBottomOf="@id/saveDate" />
+
+    <Button
+        android:id="@+id/twelve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/twelve"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/six"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ten"
+        app:layout_constraintTop_toBottomOf="@id/saveHour" />
+
+    <Button
+        android:id="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/two"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/bookNow"
+        app:layout_constraintEnd_toStartOf="@id/four"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eight" />
+
+    <Button
+        android:id="@+id/four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/four"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/bookNow"
+        app:layout_constraintEnd_toStartOf="@id/six"
+        app:layout_constraintStart_toEndOf="@id/two"
+        app:layout_constraintTop_toBottomOf="@id/ten" />
+
+    <Button
+        android:id="@+id/six"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/six"
+        android:textSize="27sp"
+        android:theme="@style/ButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/bookNow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/four"
+        app:layout_constraintTop_toBottomOf="@id/twelve" />
+
+
+    <Button
+        android:id="@+id/bookNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="@string/book_now"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/four" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

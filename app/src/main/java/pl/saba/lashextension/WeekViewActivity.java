@@ -1,5 +1,6 @@
 package pl.saba.lashextension;
 
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,10 +20,10 @@ import java.util.Objects;
 import java.util.TimeZone;
 
 
-public class CalendarActivity extends AppCompatActivity {
+public class WeekViewActivity extends AppCompatActivity {
     private String dateString = null;
     private String timeString = null;
-    private String variant = null;
+    private String variant;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,14 +87,6 @@ public class CalendarActivity extends AppCompatActivity {
                 setTimeOnControls(four, saveHour, "16:00", bookNow);
                 setTimeOnControls(six, saveHour, "18:00", bookNow);
 
-                setDateOnControls(mon, saveDate, "15.10.2021", calendar);
-                setDateOnControls(tue, saveDate, "16.10.2021", calendar);
-                setDateOnControls(wed, saveDate, "17.10.2021", calendar);
-                setDateOnControls(thu, saveDate, "18.10.2021", calendar);
-                setDateOnControls(fri, saveDate, "19.10.2021", calendar);
-                setDateOnControls(sat, saveDate, "20.10.2021", calendar);
-                setDateOnControls(sun, saveDate, "21.10.2021", calendar);
-
                 bookNow.setOnClickListener(v ->
                         openPersonActivity(effectType, dateString, timeString, variant));
             }
@@ -110,8 +103,6 @@ public class CalendarActivity extends AppCompatActivity {
         intent.putExtra("variant", variant);
         startActivity(intent);
     }
-
-    public void showWeekly
 
     private void setTimeOnControls(Button button, TextView textView, String hour, Button bookNow) {
         button.setOnClickListener(v -> {
@@ -134,4 +125,9 @@ public class CalendarActivity extends AppCompatActivity {
         Boolean result = Objects.nonNull(dateString) && Objects.nonNull(timeString);
         bookNow.setEnabled(result);
     }
+
+
 }
+
+
+
