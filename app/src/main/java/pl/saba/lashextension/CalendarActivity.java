@@ -1,106 +1,79 @@
 package pl.saba.lashextension;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.saba.lashextension.R;
 
-import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
-import java.util.TimeZone;
 
 
 public class CalendarActivity extends AppCompatActivity {
     private String dateString = null;
     private String timeString = null;
     private String variant = null;
+    private Button mon;
+    private Button tue;
+    private Button wed;
+    private Button thu;
+    private Button fri;
+    private Button sat;
+    private Button sun;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.activity_week_view);
 
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
         String value = getIntent().getStringExtra("variant");
 
-        Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        Button bookNow = findViewById(R.id.bookNow);
+        TextView saveHour = findViewById(R.id.saveHour);
         TextView saveDate = findViewById(R.id.saveDate);
-        saveDate.setText(currentDate);
-        calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-        calendar.set(Calendar.YEAR, 2021);
-        calendar.set(Calendar.MONTH, 10);
+        Button eight = findViewById(R.id.eight);
+        Button ten = findViewById(R.id.ten);
+        Button twelve = findViewById(R.id.twelve);
+        Button two = findViewById(R.id.two);
+        Button four = findViewById(R.id.four);
+        Button six = findViewById(R.id.six);
+        mon = findViewById(R.id.monBtn);
+        tue = findViewById(R.id.tueBtn);
+        wed = findViewById(R.id.wedBtn);
+        thu = findViewById(R.id.thuBtn);
+        fri = findViewById(R.id.friBtn);
+        sat = findViewById(R.id.satBtn);
+        sun = findViewById(R.id.sunBtn);
 
-//        CalendarView cv = findViewById(R.id.calendarView);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        Integer dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        Integer dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        setDateOfMonthOnButtons(dayOfWeek, dayOfMonth);
+        System.out.println("dayOfWeek = " + dayOfWeek);
+        System.out.println("dayOfMonth = " + dayOfMonth);
+//        mon.setTextColor(Color.parseColor("#DD090A"));
+//        tue.setTextColor(Color.parseColor("#228b22"));
 
+        setTimeOnControls(eight, saveHour, "08:00", bookNow);
+        setTimeOnControls(ten, saveHour, "10:00", bookNow);
+        setTimeOnControls(twelve, saveHour, "12:00", bookNow);
+        setTimeOnControls(two, saveHour, "14:00", bookNow);
+        setTimeOnControls(four, saveHour, "16:00", bookNow);
+        setTimeOnControls(six, saveHour, "18:00", bookNow);
 
-        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
-                String d = dayOfMonth + "/" + (month + 1) + "/" + year;
-                dateString = d;
-                saveDate.setText(d);
-
-
-                Button bookNow = findViewById(R.id.bookNow);
-                TextView saveHour = findViewById(R.id.saveHour);
-                Button eight = findViewById(R.id.eight);
-                Button ten = findViewById(R.id.ten);
-                Button twelve = findViewById(R.id.twelve);
-                Button two = findViewById(R.id.two);
-                Button four = findViewById(R.id.four);
-                Button six = findViewById(R.id.six);
-                Button mon = findViewById(R.id.monBtn);
-                Button tue = findViewById(R.id.tueBtn);
-                Button wed = findViewById(R.id.wedBtn);
-                Button thu = findViewById(R.id.thuBtn);
-                Button fri = findViewById(R.id.friBtn);
-                Button sat = findViewById(R.id.satBtn);
-                Button sun = findViewById(R.id.sunBtn);
-
-
-                mon.setTextColor(Color.parseColor("#DD090A"));
-                tue.setTextColor(Color.parseColor("#228b22"));
-
-                mon.setOnClickListener(v -> {
-                    saveDate.setText("15.10.2021");
-                });
-                eight.setOnClickListener(v1 -> {
-                    saveHour.setText("08:00");
-                });
-
-                setTimeOnControls(eight, saveHour, "08:00", bookNow);
-                setTimeOnControls(ten, saveHour, "10:00", bookNow);
-                setTimeOnControls(twelve, saveHour, "12:00", bookNow);
-                setTimeOnControls(two, saveHour, "14:00", bookNow);
-                setTimeOnControls(four, saveHour, "16:00", bookNow);
-                setTimeOnControls(six, saveHour, "18:00", bookNow);
-
-                setDateOnControls(mon, saveDate, "15.10.2021", calendar);
-                setDateOnControls(tue, saveDate, "16.10.2021", calendar);
-                setDateOnControls(wed, saveDate, "17.10.2021", calendar);
-                setDateOnControls(thu, saveDate, "18.10.2021", calendar);
-                setDateOnControls(fri, saveDate, "19.10.2021", calendar);
-                setDateOnControls(sat, saveDate, "20.10.2021", calendar);
-                setDateOnControls(sun, saveDate, "21.10.2021", calendar);
-
-                bookNow.setOnClickListener(v ->
-                        openPersonActivity(effectType, dateString, timeString, variant));
-            }
-        });
-
-
+        bookNow.setOnClickListener(v ->
+                openPersonActivity(effectType, dateString, timeString, variant));
     }
+
 
     public void openPersonActivity(EffectType effectType, String dateString, String timeString, String variant) {
         Intent intent = new Intent(this, PersonActivity.class);
@@ -111,7 +84,6 @@ public class CalendarActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void showWeekly
 
     private void setTimeOnControls(Button button, TextView textView, String hour, Button bookNow) {
         button.setOnClickListener(v -> {
@@ -122,16 +94,20 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
 
-    private void setDateOnControls(Button button, TextView textView, String date, Calendar calendar) {
-        button.setOnClickListener(v -> {
-            textView.setText(date);
-            dateString = date;
-            calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-        });
-    }
 
     private void lockAndUnlockButton(Button bookNow) {
         Boolean result = Objects.nonNull(dateString) && Objects.nonNull(timeString);
         bookNow.setEnabled(result);
+    }
+
+    private void setDateOfMonthOnButtons(Integer dayOfWeek, Integer dayOfMonth) {
+        sun.setText(String.valueOf(dayOfMonth - dayOfWeek + 8));
+        mon.setText(String.valueOf(dayOfMonth - dayOfWeek + 2));
+        tue.setText(String.valueOf(dayOfMonth - dayOfWeek + 3));
+        wed.setText(String.valueOf(dayOfMonth - dayOfWeek + 4));
+        thu.setText(String.valueOf(dayOfMonth - dayOfWeek + 5));
+        fri.setText(String.valueOf(dayOfMonth - dayOfWeek + 6));
+        sat.setText(String.valueOf(dayOfMonth - dayOfWeek + 7));
+
     }
 }
