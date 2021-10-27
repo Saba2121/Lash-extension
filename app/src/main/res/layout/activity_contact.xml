@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
     android:background="@color/white">
 
     <ImageButton
         android:id="@+id/icHours"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/ic_hours"
@@ -19,9 +21,8 @@
 
     <TextView
         android:id="@+id/openingHours"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="cursive"
         android:gravity="center"
@@ -35,14 +36,13 @@
 
     <TextView
         android:id="@+id/daysAndHours"
-        android:layout_width="220dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="15dp"
         android:text="@string/days_and_hours"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="43dp"
         app:layout_constraintBottom_toTopOf="@id/phoneNumberTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +50,8 @@
 
     <ImageButton
         android:id="@+id/icPhone"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="190dp"
         android:layout_marginEnd="20dp"
@@ -63,10 +63,9 @@
 
     <TextView
         android:id="@+id/phoneNumberTV"
-        android:layout_width="190dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:text="@string/phone_number"
@@ -79,13 +78,14 @@
 
     <TextView
         android:id="@+id/numberNumber"
-        android:layout_width="280dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/number_number"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="25sp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toTopOf="@id/emailTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +93,8 @@
 
     <ImageButton
         android:id="@+id/icEmail"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/ic_email"
@@ -105,8 +105,8 @@
 
     <TextView
         android:id="@+id/emailTV"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:fontFamily="cursive"

@@ -17,7 +17,6 @@
     <string name="email_">Email</string>
     <string name="email_email">sabina-slosarczyk@o2.pl</string>
     <string name="days_and_hours">Monday - Friday 08:00 - 20:00</string>
-    <string name="select_a_date">Select date and hour</string>
     <string name="mon">Mon</string>
     <string name="tue">Tue</string>
     <string name="wed">Wed</string>
@@ -32,7 +31,7 @@
     <string name="friday">19</string>
     <string name="saturday">20</string>
     <string name="sunday">21</string>
-    <string name="month_and_year">Oct 2021</string>
+    <string name="month_and_year">October 2021</string>
     <string name="left"> - </string>
     <string name="right">-></string>
     <string name="save_date"> </string>

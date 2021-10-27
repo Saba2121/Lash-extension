@@ -14,7 +14,7 @@
         android:gravity="center"
         android:text="@string/eyelash_styling_services"
         android:textAllCaps="false"
-        android:textSize="45sp"
+        android:textSize="40sp"
         android:theme="@style/TextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +22,8 @@
 
     <Button
         android:id="@+id/naturalEffectBtn"
-        android:layout_width="170dp"
-        android:layout_height="100dp"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="@string/natural_effect"
@@ -37,8 +37,8 @@
 
     <Button
         android:id="@+id/lightVolumeBtn"
-        android:layout_width="170dp"
-        android:layout_height="100dp"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
         android:layout_marginTop="13dp"
         android:gravity="center"
         android:text="@string/light_volume"
@@ -52,8 +52,8 @@
 
     <Button
         android:id="@+id/kimEffectBtn"
-        android:layout_width="170dp"
-        android:layout_height="100dp"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
         android:gravity="center"
         android:text="@string/kim_effect"
         android:textAllCaps="false"
@@ -67,8 +67,8 @@
 
     <Button
         android:id="@+id/megaVolumeBtn"
-        android:layout_width="170dp"
-        android:layout_height="100dp"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
         android:gravity="center"
         android:text="@string/mega_volume"
         android:textAllCaps="false"

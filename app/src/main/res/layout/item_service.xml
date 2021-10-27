@@ -15,28 +15,29 @@
 
         <TextView
             android:id="@+id/serviceName"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="80dp"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:layout_marginTop="35dp"
             android:gravity="center"
             android:textColor="@color/purple_200"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             tools:text="1:1" />
 
         <ImageView
             android:id="@+id/serviceImage"
-            android:layout_width="178dp"
-            android:layout_height="130dp"
-            android:layout_marginStart="90dp"
+            android:layout_width="170dp"
+            android:layout_height="135dp"
+            android:layout_marginStart="75dp"
             android:background="@drawable/service_ne_2" />
 
         <TextView
             android:id="@+id/servicePrice"
-            android:layout_width="83dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="285dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="260dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:textColor="@color/purple_200"
@@ -45,21 +46,22 @@
 
         <TextView
             android:id="@+id/serviceTime"
-            android:layout_width="77dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="285dp"
-            android:layout_marginTop="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="50dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textColor="@color/purple_200"
-            android:textSize="15sp"
+            android:textSize="11sp"
             tools:text="Approx.120 min" />
 
         <TextView
             android:id="@+id/serviceVariant"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="365dp"
-            android:layout_marginTop="85dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="320dp"
+            android:layout_marginTop="110dp"
             android:gravity="center"
             android:textColor="@color/purple_200"
             android:textSize="11sp"
@@ -68,10 +70,10 @@
 
         <RadioButton
             android:id="@+id/serviceRadioBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="370dp"
-            android:layout_marginTop="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="285dp"
+            android:layout_marginTop="65dp"
             android:layout_marginEnd="2dp" />
 
 
