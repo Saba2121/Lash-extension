@@ -136,7 +136,8 @@ public class CalendarActivity extends AppCompatActivity {
         Integer year = calendar.get(Calendar.YEAR);
         Integer month = calendar.get(Calendar.MONTH) + 1;
         Integer daysInMonth = YearMonth.of(year, month).lengthOfMonth();
-        Integer daysInPreviousMonth = YearMonth.of(year, month).lengthOfMonth();
+        Integer daysInPreviousMonth = YearMonth.of(year, (month - 1) == 0 ? 12 : month - 1).lengthOfMonth();
+
 
         mon.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
                 2, daysInMonth, daysInPreviousMonth)));
@@ -152,99 +153,60 @@ public class CalendarActivity extends AppCompatActivity {
                 7, daysInMonth, daysInPreviousMonth)));
         sun.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
                 8, daysInMonth, daysInPreviousMonth)));
-        monthAndYear.setText(((setNameOfMonths(calendar.get(Calendar.JANUARY)))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.FEBRUARY))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.MARCH))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.APRIL))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.MAY))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.JUNE))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.JULY))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.AUGUST))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.SEPTEMBER))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.OCTOBER))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.NOVEMBER))));
-        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.DECEMBER))));
+
+        Integer daysDiffForFirstCircle = -dayOfWeek + 2;
+        Calendar calendarForFirstCircle = (Calendar) calendar.clone();
+        calendarForFirstCircle.add(Calendar.DATE, daysDiffForFirstCircle);
+        String nameOfMonthForFirstCircle = getNameOfMonths(calendarForFirstCircle.get(Calendar.MONTH));
+
+        Integer daysDiffForLastCircle = -dayOfWeek + 8;
+        Calendar calendarForLastCircle = (Calendar) calendar.clone();
+        calendarForLastCircle.add(Calendar.DATE, daysDiffForLastCircle);
+        String nameOfMonthForLastCircle = getNameOfMonths(calendarForLastCircle.get(Calendar.MONTH));
+
+
+        if (nameOfMonthForFirstCircle.equals(nameOfMonthForLastCircle)) {
+            monthAndYear.setText(nameOfMonthForFirstCircle);
+
+        } else {
+            monthAndYear.setText(nameOfMonthForFirstCircle + "/ " + nameOfMonthForLastCircle);
+        }
+
+
 //        sun.setBackgroundColor(Color.parseColor("#DD090A"));
 
     }
 
-    private String setNameOfMonths(Integer numberOfMonth) {
-
-        String nameOfMonth;
+    private String getNameOfMonths(Integer numberOfMonth) {
 
         switch (numberOfMonth) {
             case 0:
-                return "January 2021";
+                return "January";
             case 1:
-                return "February 2021";
+                return "February";
             case 2:
-                return "March 2021";
+                return "March";
             case 3:
-                return "April 2021";
+                return "April";
             case 4:
-                return "May 2021";
+                return "May";
             case 5:
-                return "June 2021";
+                return "June";
             case 6:
-                return "July 2021";
+                return "July";
             case 7:
-                return "August 2021";
+                return "August";
             case 8:
-                return "September 2021";
+                return "September";
             case 9:
-                return "October 2021";
+                return "October";
             case 10:
-                return "November 2021";
-            case 11:
-                return "December 2021";
+                return "November";
+            default:
+                return "December";
+
         }
-//        return numberOfMonth;
-        return "January";
-
-
-//        String month;
-//
-//        if (numberOfMonth == 0) {
-//            month = "January";
-//        } else if (numberOfMonth == 1) {
-//            month = "February";
-//        } else if (numberOfMonth == 2) {
-//            month = "March";
-//        } else if (numberOfMonth == 3) {
-//            month = "April";
-//        } else if (numberOfMonth == 4) {
-//            month = "May";
-//        } else if (numberOfMonth == 5) {
-//            month = "June";
-//        } else if (numberOfMonth == 6) {
-//            month = "July";
-//
-//
-//        } else {
-//            month = "December";
-//        }
-
-//        switch (numberOfMonth) {
-//            case 1:
-//            case 3:
-//            case 5:
-//            case 7:
-//            case 8:
-//            case 10:
-//            case 12:
-//                System.out.println("31");
-//            case 2:
-//                System.out.println("28");
-//            default:
-//                System.out.println("30");
-//        }
 
 
     }
-//    private static String getDay (String month, String year){
-//        int mm = Integer.parseInt(month);
-//        int yy = Integer.parseInt(year);
-//        LocalDate dt = LocalDate.of(mm, yy);
-//        return dt.getDayOfWeek().toString().toUpperCase();
-//    }
 }
