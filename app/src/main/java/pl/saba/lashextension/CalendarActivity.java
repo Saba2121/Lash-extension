@@ -10,10 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.saba.lashextension.R;
 
+import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
-
 
 public class CalendarActivity extends AppCompatActivity {
     private String dateString = null;
@@ -26,7 +26,7 @@ public class CalendarActivity extends AppCompatActivity {
     private Button fri;
     private Button sat;
     private Button sun;
-    Integer numberOfDaysInCurrentMonth = 0;
+    private Calendar calendar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,8 +40,8 @@ public class CalendarActivity extends AppCompatActivity {
         TextView saveHour = findViewById(R.id.saveHour);
         TextView saveDate = findViewById(R.id.saveDate);
         TextView monthAndYear = findViewById(R.id.monthAndYearTextView);
-        Button right = findViewById(R.id.rightBtn);
-        Button left = findViewById(R.id.leftBtn);
+        Button next = findViewById(R.id.nextBtn);
+        Button previous = findViewById(R.id.previousBtn);
         Button eight = findViewById(R.id.eight);
         Button ten = findViewById(R.id.ten);
         Button twelve = findViewById(R.id.twelve);
@@ -63,43 +63,26 @@ public class CalendarActivity extends AppCompatActivity {
         TextView saturday = findViewById(R.id.satTextView);
         TextView sunday = findViewById(R.id.sunTextView);
 
-        right.setOnClickListener(v -> {
-            setDateOfMonthOnButtons(3, 26, 31, 30);
-            setNameOfMonth(5);
-        });
-        left.setOnClickListener(v -> {
-            setDateOfMonthOnButtons(3, 19, 31, 30);
+        next.setOnClickListener(v -> {
+            calendar.add(Calendar.DATE, 7);
+            setDateOfMonthOnButtons(calendar, monthAndYear);
         });
 
+        previous.setOnClickListener(v -> {
+            calendar.add(Calendar.DATE, -7);
+            setDateOfMonthOnButtons(calendar, monthAndYear);
+
+        });
         mon.setOnClickListener(v -> {
-            saveDate.setText("18.10.2021");
+            saveDate.setText("date");
 //            dateString =date;
             lockAndUnlockButton(bookNow);
         });
 
-        Calendar calendar = Calendar.getInstance();
+        calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        Integer dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        Integer dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-        Integer month = calendar.get(Calendar.MONTH);
 
-//        Month month1 = Month.FEBRUARY;
-//        System.out.println(month1.length(true));
-//        Month month2 = Month.MAY;
-//        System.out.println(month2.length(false));
-        int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-
-        calendar.set(Calendar.MONTH, 9);
-        calendar.set(Calendar.YEAR, 2021);
-        calendar.set(Calendar.MONTH, Calendar.OCTOBER);
-
-
-        setDateOfMonthOnButtons(dayOfWeek, dayOfMonth, 31, 30);
-        System.out.println("dayOfWeek = " + dayOfWeek);
-        System.out.println("dayOfMonth = " + dayOfMonth);
-        setNameOfMonth(1);
-
-//        tue.setTextColor(Color.parseColor("#228b22"));
+        setDateOfMonthOnButtons(calendar, monthAndYear);
 
         setTimeOnControls(eight, saveHour, "08:00", bookNow);
         setTimeOnControls(ten, saveHour, "10:00", bookNow);
@@ -134,63 +117,112 @@ public class CalendarActivity extends AppCompatActivity {
         bookNow.setEnabled(result);
     }
 
-    private void setDateOfMonthOnButtons(Integer dayOfWeek, Integer dayOfMonth, Integer numberOfDaysInCurrentMonth, Integer numberOfDaysInPreviousMonth) {
-        mon.setText(String.valueOf(dayOfMonth - dayOfWeek + 2));
-        tue.setText(String.valueOf(dayOfMonth - dayOfWeek + 3));
-        wed.setText(String.valueOf(dayOfMonth - dayOfWeek + 4));
-        thu.setText(String.valueOf(dayOfMonth - dayOfWeek + 5));
-        fri.setText(String.valueOf(dayOfMonth - dayOfWeek + 6));
-        sat.setText(String.valueOf(dayOfMonth - dayOfWeek + 7));
-        sun.setText(String.valueOf(dayOfMonth - dayOfWeek + 8));
-//        sun.setBackgroundColor(Color.parseColor("#DD090A"));
-
-        if (numberOfDaysInCurrentMonth <= 0) {
-            numberOfDaysInCurrentMonth = 30;
+    private Integer countNumberOfDayInCircle(Integer dayOfMonth, Integer dayOfWeek,
+                                             Integer circleOfNumber, Integer numberOfDaysInCurrentMonth,
+                                             Integer numberOfDaysInPreviousMonth) {
+        Integer different = dayOfMonth - dayOfWeek + circleOfNumber;
+        if (different > numberOfDaysInCurrentMonth) {
+            return different - numberOfDaysInCurrentMonth;
+        } else if (different < 1) {
+            return different + numberOfDaysInPreviousMonth;
+        } else {
+            return different;
         }
     }
 
-    private void setNameOfMonth(Integer numberOfMonth) {
-        String daysInMonth;
+    private void setDateOfMonthOnButtons(Calendar calendar, TextView monthAndYear) {
+        Integer dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        Integer dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        Integer year = calendar.get(Calendar.YEAR);
+        Integer month = calendar.get(Calendar.MONTH) + 1;
+        Integer daysInMonth = YearMonth.of(year, month).lengthOfMonth();
+        Integer daysInPreviousMonth = YearMonth.of(year, month).lengthOfMonth();
 
-//        if (numberOfMonth == 4) ||numberOfMonth == 6 || numberOfMonth == 9 || numberOfMonth = 11) {
-//            daysInMonth = 30;
-//        }else{
-//            if (numberOfMonth== 2) {
-//                daysInMonth = 28;
-//            } else {
-//                numberOfMonth = 31;
-//            }
-//        }
+        mon.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
+                2, daysInMonth, daysInPreviousMonth)));
+        tue.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
+                3, daysInMonth, daysInPreviousMonth)));
+        wed.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
+                4, daysInMonth, daysInPreviousMonth)));
+        thu.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
+                5, daysInMonth, daysInPreviousMonth)));
+        fri.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
+                6, daysInMonth, daysInPreviousMonth)));
+        sat.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
+                7, daysInMonth, daysInPreviousMonth)));
+        sun.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
+                8, daysInMonth, daysInPreviousMonth)));
+        monthAndYear.setText(((setNameOfMonths(calendar.get(Calendar.JANUARY)))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.FEBRUARY))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.MARCH))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.APRIL))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.MAY))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.JUNE))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.JULY))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.AUGUST))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.SEPTEMBER))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.OCTOBER))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.NOVEMBER))));
+        monthAndYear.setText((setNameOfMonths(calendar.get(Calendar.DECEMBER))));
+//        sun.setBackgroundColor(Color.parseColor("#DD090A"));
+
+    }
+
+    private String setNameOfMonths(Integer numberOfMonth) {
+
+        String nameOfMonth;
 
         switch (numberOfMonth) {
             case 0:
-                System.out.println("January");
+                return "January 2021";
             case 1:
-                System.out.println("February");
-            default:
+                return "February 2021";
+            case 2:
+                return "March 2021";
+            case 3:
+                return "April 2021";
+            case 4:
+                return "May 2021";
+            case 5:
+                return "June 2021";
+            case 6:
+                return "July 2021";
+            case 7:
+                return "August 2021";
+            case 8:
+                return "September 2021";
+            case 9:
+                return "October 2021";
+            case 10:
+                return "November 2021";
+            case 11:
+                return "December 2021";
         }
-
-        String month;
-
-        if (numberOfMonth == 0) {
-            month = "January";
-        } else if (numberOfMonth == 1) {
-            month = "February";
-        } else if (numberOfMonth == 2) {
-            month = "March";
-        } else if (numberOfMonth == 3) {
-            month = "April";
-        } else if (numberOfMonth == 4) {
-            month = "May";
-        } else if (numberOfMonth == 5) {
-            month = "June";
-        } else if (numberOfMonth == 6) {
-            month = "July";
+//        return numberOfMonth;
+        return "January";
 
 
-        } else {
-            month = "December";
-        }
+//        String month;
+//
+//        if (numberOfMonth == 0) {
+//            month = "January";
+//        } else if (numberOfMonth == 1) {
+//            month = "February";
+//        } else if (numberOfMonth == 2) {
+//            month = "March";
+//        } else if (numberOfMonth == 3) {
+//            month = "April";
+//        } else if (numberOfMonth == 4) {
+//            month = "May";
+//        } else if (numberOfMonth == 5) {
+//            month = "June";
+//        } else if (numberOfMonth == 6) {
+//            month = "July";
+//
+//
+//        } else {
+//            month = "December";
+//        }
 
 //        switch (numberOfMonth) {
 //            case 1:
@@ -207,6 +239,12 @@ public class CalendarActivity extends AppCompatActivity {
 //                System.out.println("30");
 //        }
 
-    }
 
+    }
+//    private static String getDay (String month, String year){
+//        int mm = Integer.parseInt(month);
+//        int yy = Integer.parseInt(year);
+//        LocalDate dt = LocalDate.of(mm, yy);
+//        return dt.getDayOfWeek().toString().toUpperCase();
+//    }
 }

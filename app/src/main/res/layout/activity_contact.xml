@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    android:background="@color/white">
+    android:padding="10dp">
 
     <ImageButton
         android:id="@+id/icHours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/ic_hours"
-        app:layout_constraintBottom_toTopOf="@id/daysAndHours"
-        app:layout_constraintEnd_toStartOf="@id/openingHours"
+        android:background="@drawable/ic_hour"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@id/daysInWeek"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,99 +24,112 @@
         android:id="@+id/openingHours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="45dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:text="@string/opening_hours"
         android:textColor="@color/purple_200"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@id/daysAndHours"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@id/daysInWeek"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toEndOf="@id/icHours"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/daysAndHours"
+        android:id="@+id/daysInWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="@string/days_and_hours"
+        android:text="@string/days_in_week"
         android:textColor="@color/black"
-        android:textSize="43dp"
-        app:layout_constraintBottom_toTopOf="@id/phoneNumberTV"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/hoursInWeek"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/openingHours" />
 
-    <ImageButton
-        android:id="@+id/icPhone"
+    <TextView
+        android:id="@+id/hoursInWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/ic_phone"
-        app:layout_constraintBottom_toTopOf="@id/numberNumber"
-        app:layout_constraintEnd_toStartOf="@id/phoneNumberTV"
+        android:gravity="center"
+        android:text="@string/hours_in_week"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/phoneNumberTV"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/daysInWeek" />
+
+    <ImageButton
+        android:id="@+id/icPhone"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/ic_phone"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@id/numberNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hoursInWeek" />
 
     <TextView
         android:id="@+id/phoneNumberTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="37dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:text="@string/phone_number"
         android:textAllCaps="false"
         android:textColor="@color/purple_200"
-        android:textSize="35sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@id/numberNumber"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icPhone"
-        app:layout_constraintTop_toBottomOf="@id/daysAndHours" />
+        app:layout_constraintTop_toBottomOf="@id/hoursInWeek" />
 
     <TextView
         android:id="@+id/numberNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="@string/number_number"
-        android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toTopOf="@id/emailTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icPhone" />
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberTV" />
 
     <ImageButton
         android:id="@+id/icEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/ic_email"
+        android:foregroundGravity="center"
         app:layout_constraintBottom_toTopOf="@id/emailEmail"
-        app:layout_constraintEnd_toStartOf="@id/emailTV"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/numberNumber" />
 
     <TextView
         android:id="@+id/emailTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginEnd="70dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:text="@string/email_"
-        android:textAllCaps="false"
         android:textColor="@color/purple_200"
-        android:textSize="35sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@id/emailEmail"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icEmail"
         app:layout_constraintTop_toBottomOf="@id/numberNumber" />
 
@@ -123,30 +137,51 @@
         android:id="@+id/emailEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="125dp"
         android:gravity="center"
         android:text="@string/email_email"
-        android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/goBackContact"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icEmail" />
+        app:layout_constraintTop_toBottomOf="@id/emailTV" />
+
+    <ImageView
+        android:id="@+id/facebookImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_facebook_logo"
+        app:layout_constraintBottom_toTopOf="@id/goBackContact"
+        app:layout_constraintEnd_toStartOf="@id/instagramImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailEmail" />
+
+    <ImageView
+        android:id="@+id/instagramImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_instagram_logo"
+        app:layout_constraintBottom_toTopOf="@id/goBackContact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/facebookImageView"
+        app:layout_constraintTop_toBottomOf="@id/emailEmail" />
 
     <Button
         android:id="@+id/goBackContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:padding="5dp"
         android:text="@string/go_back"
         android:textAllCaps="true"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

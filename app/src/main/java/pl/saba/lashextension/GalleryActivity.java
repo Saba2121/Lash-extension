@@ -21,7 +21,7 @@ import pl.saba.lashextension.gallerylist.GalleryDto;
 public class GalleryActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
         RecyclerView recyclerView = findViewById(R.id.galleryRecyclerView);

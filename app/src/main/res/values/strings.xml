@@ -16,7 +16,8 @@
     <string name="number_number">(+48)606871226</string>
     <string name="email_">Email</string>
     <string name="email_email">sabina-slosarczyk@o2.pl</string>
-    <string name="days_and_hours">Monday - Friday 08:00 - 20:00</string>
+    <string name="days_in_week">Monday - Friday</string>
+    <string name="hours_in_week">08:00 - 20:00</string>
     <string name="mon">Mon</string>
     <string name="tue">Tue</string>
     <string name="wed">Wed</string>
@@ -24,16 +25,6 @@
     <string name="fri">Fri</string>
     <string name="sat">Sat</string>
     <string name="sun">Sun</string>
-    <string name="monday">15</string>
-    <string name="tuesday">16</string>
-    <string name="wednesday">17</string>
-    <string name="thursday">18</string>
-    <string name="friday">19</string>
-    <string name="saturday">20</string>
-    <string name="sunday">21</string>
-    <string name="month_and_year">October 2021</string>
-    <string name="left"> - </string>
-    <string name="right">-></string>
     <string name="save_date"> </string>
     <string name="save_hour"> </string>
     <string name="book_now">book now</string>
@@ -52,9 +43,9 @@
     <string name="last_name">Last name</string>
     <string name="number_phone">Phone number</string>
     <string name="book_appointment">Book appointment</string>
-    <string name="zapraszamy">Wizyta umówiona, zapraszamy</string>
     <string name="date">Date:</string>
     <string name="hour">Hour:</string>
+    <string name="variant">Variant:</string>
     <string name="confirm_order">if the data is correct, click submit</string>
 
 

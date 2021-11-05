@@ -17,14 +17,14 @@
         android:padding="1dp"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@id/tueBtn"
-        app:layout_constraintEnd_toStartOf="@id/rightBtn"
-        app:layout_constraintStart_toEndOf="@id/leftBtn"
+        app:layout_constraintEnd_toStartOf="@id/nextBtn"
+        app:layout_constraintStart_toEndOf="@id/previousBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.483"
         tools:text="October 2021" />
 
     <Button
-        android:id="@+id/leftBtn"
+        android:id="@+id/previousBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/rightBtn"
+        android:id="@+id/nextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -355,7 +355,7 @@
         android:id="@+id/bookNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:enabled="false"
+        android:enabled="true"
         android:text="@string/book_now"
         android:textAllCaps="true"
         android:textColor="@color/white"
