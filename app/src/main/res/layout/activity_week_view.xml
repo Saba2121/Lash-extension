@@ -10,42 +10,42 @@
 
 
     <TextView
-        android:id="@+id/monthAndYearTextView"
+        android:id="@+id/nameOfMonthTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="1dp"
-        android:textSize="35sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@id/tueBtn"
         app:layout_constraintEnd_toStartOf="@id/nextBtn"
         app:layout_constraintStart_toEndOf="@id/previousBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483"
         tools:text="October 2021" />
 
     <Button
         android:id="@+id/previousBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:gravity="center"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/ic_arrow_left"
         app:layout_constraintBottom_toTopOf="@id/monBtn"
-        app:layout_constraintEnd_toStartOf="@id/monthAndYearTextView"
+        app:layout_constraintEnd_toStartOf="@id/nameOfMonthTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/nextBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/ic_arrow_right"
         app:layout_constraintBottom_toTopOf="@id/thuBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/monthAndYearTextView"
+        app:layout_constraintStart_toEndOf="@id/nameOfMonthTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -58,7 +58,7 @@
         app:layout_constraintBottom_toTopOf="@id/monBtn"
         app:layout_constraintEnd_toStartOf="@id/tueTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        app:layout_constraintTop_toBottomOf="@id/nameOfMonthTextView"
         app:layout_constraintHorizontal_chainStyle="spread"
         tools:text="Mon" />
 
@@ -88,7 +88,7 @@
         app:layout_constraintBottom_toTopOf="@id/tueBtn"
         app:layout_constraintEnd_toStartOf="@id/wedTextView"
         app:layout_constraintStart_toEndOf="@id/monTextView"
-        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        app:layout_constraintTop_toBottomOf="@id/nameOfMonthTextView"
         tools:text="Tue" />
 
     <Button
@@ -116,7 +116,7 @@
         app:layout_constraintBottom_toTopOf="@id/wedBtn"
         app:layout_constraintEnd_toStartOf="@id/thuTextView"
         app:layout_constraintStart_toEndOf="@id/tueTextView"
-        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        app:layout_constraintTop_toBottomOf="@id/nameOfMonthTextView"
         tools:text="Wed" />
 
     <Button
@@ -144,7 +144,7 @@
         app:layout_constraintBottom_toTopOf="@id/thuBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/wedTextView"
-        app:layout_constraintTop_toBottomOf="@id/monthAndYearTextView"
+        app:layout_constraintTop_toBottomOf="@id/nameOfMonthTextView"
         tools:text="Thu" />
 
     <Button
@@ -355,7 +355,7 @@
         android:id="@+id/bookNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:enabled="true"
+        android:enabled="false"
         android:text="@string/book_now"
         android:textAllCaps="true"
         android:textColor="@color/white"

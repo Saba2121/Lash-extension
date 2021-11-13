@@ -15,6 +15,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
+import static java.lang.String.valueOf;
+
 public class CalendarActivity extends AppCompatActivity {
     private String dateString = null;
     private String timeString = null;
@@ -39,7 +41,7 @@ public class CalendarActivity extends AppCompatActivity {
         Button bookNow = findViewById(R.id.bookNow);
         TextView saveHour = findViewById(R.id.saveHour);
         TextView saveDate = findViewById(R.id.saveDate);
-        TextView monthAndYear = findViewById(R.id.monthAndYearTextView);
+        TextView monthAndYear = findViewById(R.id.nameOfMonthTextView);
         Button next = findViewById(R.id.nextBtn);
         Button previous = findViewById(R.id.previousBtn);
         Button eight = findViewById(R.id.eight);
@@ -65,24 +67,28 @@ public class CalendarActivity extends AppCompatActivity {
 
         next.setOnClickListener(v -> {
             calendar.add(Calendar.DATE, 7);
-            setDateOfMonthOnButtons(calendar, monthAndYear);
+            setDayOfMonthOnButtons(calendar, monthAndYear);
         });
 
         previous.setOnClickListener(v -> {
             calendar.add(Calendar.DATE, -7);
-            setDateOfMonthOnButtons(calendar, monthAndYear);
+            setDayOfMonthOnButtons(calendar, monthAndYear);
 
         });
         mon.setOnClickListener(v -> {
-            saveDate.setText("date");
-//            dateString =date;
-            lockAndUnlockButton(bookNow);
+            Date date = calendar.getTime();
+            saveDate.setText(date.toString());
+            dateString = date.toString();
+            lockOrUnlockButton(bookNow);
         });
 
         calendar = Calendar.getInstance();
+        Integer dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         calendar.setTime(new Date());
+        calendar.add(Calendar.DATE, -dayOfWeek + 2);
+        System.out.println("data = " + calendar.getTime());
 
-        setDateOfMonthOnButtons(calendar, monthAndYear);
+        setDayOfMonthOnButtons(calendar, monthAndYear);
 
         setTimeOnControls(eight, saveHour, "08:00", bookNow);
         setTimeOnControls(ten, saveHour, "10:00", bookNow);
@@ -108,73 +114,55 @@ public class CalendarActivity extends AppCompatActivity {
         button.setOnClickListener(v -> {
             textView.setText(hour);
             timeString = hour;
-            lockAndUnlockButton(bookNow);
+            lockOrUnlockButton(bookNow);
         });
     }
 
-    private void lockAndUnlockButton(Button bookNow) {
+    private void lockOrUnlockButton(Button bookNow) {
         Boolean result = Objects.nonNull(dateString) && Objects.nonNull(timeString);
         bookNow.setEnabled(result);
+
     }
 
-    private Integer countNumberOfDayInCircle(Integer dayOfMonth, Integer dayOfWeek,
-                                             Integer circleOfNumber, Integer numberOfDaysInCurrentMonth,
-                                             Integer numberOfDaysInPreviousMonth) {
-        Integer different = dayOfMonth - dayOfWeek + circleOfNumber;
+    private Integer countNumberOfDayInCircle(Integer dayOfMonth, Integer circleOfNumber,
+                                             Integer numberOfDaysInCurrentMonth) {
+        Integer different = dayOfMonth + circleOfNumber;
         if (different > numberOfDaysInCurrentMonth) {
             return different - numberOfDaysInCurrentMonth;
-        } else if (different < 1) {
-            return different + numberOfDaysInPreviousMonth;
+
         } else {
             return different;
         }
     }
 
-    private void setDateOfMonthOnButtons(Calendar calendar, TextView monthAndYear) {
-        Integer dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+    private void setDayOfMonthOnButtons(Calendar calendar, TextView nameOfMonth) {
         Integer dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
         Integer year = calendar.get(Calendar.YEAR);
         Integer month = calendar.get(Calendar.MONTH) + 1;
         Integer daysInMonth = YearMonth.of(year, month).lengthOfMonth();
-        Integer daysInPreviousMonth = YearMonth.of(year, (month - 1) == 0 ? 12 : month - 1).lengthOfMonth();
 
+        mon.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 0, daysInMonth)));
+        tue.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 1, daysInMonth)));
+        wed.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 2, daysInMonth)));
+        thu.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 3, daysInMonth)));
+        fri.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 4, daysInMonth)));
+        sat.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 5, daysInMonth)));
+        sun.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 6, daysInMonth)));
 
-        mon.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
-                2, daysInMonth, daysInPreviousMonth)));
-        tue.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
-                3, daysInMonth, daysInPreviousMonth)));
-        wed.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
-                4, daysInMonth, daysInPreviousMonth)));
-        thu.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
-                5, daysInMonth, daysInPreviousMonth)));
-        fri.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
-                6, daysInMonth, daysInPreviousMonth)));
-        sat.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
-                7, daysInMonth, daysInPreviousMonth)));
-        sun.setText(String.valueOf(countNumberOfDayInCircle(dayOfMonth, dayOfWeek,
-                8, daysInMonth, daysInPreviousMonth)));
-
-        Integer daysDiffForFirstCircle = -dayOfWeek + 2;
         Calendar calendarForFirstCircle = (Calendar) calendar.clone();
-        calendarForFirstCircle.add(Calendar.DATE, daysDiffForFirstCircle);
         String nameOfMonthForFirstCircle = getNameOfMonths(calendarForFirstCircle.get(Calendar.MONTH));
 
-        Integer daysDiffForLastCircle = -dayOfWeek + 8;
         Calendar calendarForLastCircle = (Calendar) calendar.clone();
-        calendarForLastCircle.add(Calendar.DATE, daysDiffForLastCircle);
+        calendarForLastCircle.add(Calendar.DATE, 6);
         String nameOfMonthForLastCircle = getNameOfMonths(calendarForLastCircle.get(Calendar.MONTH));
 
-
         if (nameOfMonthForFirstCircle.equals(nameOfMonthForLastCircle)) {
-            monthAndYear.setText(nameOfMonthForFirstCircle);
+            nameOfMonth.setText(nameOfMonthForFirstCircle);
 
         } else {
-            monthAndYear.setText(nameOfMonthForFirstCircle + "/ " + nameOfMonthForLastCircle);
+            nameOfMonth.setText(nameOfMonthForFirstCircle + "/ " + nameOfMonthForLastCircle);
         }
-
-
 //        sun.setBackgroundColor(Color.parseColor("#DD090A"));
-
     }
 
     private String getNameOfMonths(Integer numberOfMonth) {
@@ -206,7 +194,5 @@ public class CalendarActivity extends AppCompatActivity {
                 return "December";
 
         }
-
-
     }
 }
