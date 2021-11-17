@@ -20,15 +20,11 @@ import static java.lang.String.valueOf;
 public class CalendarActivity extends AppCompatActivity {
     private String dateString = null;
     private String timeString = null;
-    private String variant = null;
-    private Button mon;
-    private Button tue;
-    private Button wed;
-    private Button thu;
-    private Button fri;
-    private Button sat;
-    private Button sun;
+    private String variant;
+    private Button mon, tue, wed, thu, fri, sat, sun;
+    private Button bookNow;
     private Calendar calendar;
+    private TextView saveDate;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,11 +32,11 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_week_view);
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
-        String value = getIntent().getStringExtra("variant");
+        String variant = getIntent().getStringExtra("variant");
 
-        Button bookNow = findViewById(R.id.bookNow);
+        bookNow = findViewById(R.id.bookNow);
         TextView saveHour = findViewById(R.id.saveHour);
-        TextView saveDate = findViewById(R.id.saveDate);
+        saveDate = findViewById(R.id.saveDate);
         TextView monthAndYear = findViewById(R.id.nameOfMonthTextView);
         Button next = findViewById(R.id.nextBtn);
         Button previous = findViewById(R.id.previousBtn);
@@ -57,29 +53,15 @@ public class CalendarActivity extends AppCompatActivity {
         fri = findViewById(R.id.friBtn);
         sat = findViewById(R.id.satBtn);
         sun = findViewById(R.id.sunBtn);
-        TextView monday = findViewById(R.id.monTextView);
-        TextView tuesday = findViewById(R.id.tueTextView);
-        TextView wednesday = findViewById(R.id.wedTextView);
-        TextView thursday = findViewById(R.id.thuTextView);
-        TextView friday = findViewById(R.id.friTextView);
-        TextView saturday = findViewById(R.id.satTextView);
-        TextView sunday = findViewById(R.id.sunTextView);
 
         next.setOnClickListener(v -> {
             calendar.add(Calendar.DATE, 7);
-            setDayOfMonthOnButtons(calendar, monthAndYear);
+            refreshView(calendar, monthAndYear);
         });
 
         previous.setOnClickListener(v -> {
             calendar.add(Calendar.DATE, -7);
-            setDayOfMonthOnButtons(calendar, monthAndYear);
-
-        });
-        mon.setOnClickListener(v -> {
-            Date date = calendar.getTime();
-            saveDate.setText(date.toString());
-            dateString = date.toString();
-            lockOrUnlockButton(bookNow);
+            refreshView(calendar, monthAndYear);
         });
 
         calendar = Calendar.getInstance();
@@ -88,14 +70,22 @@ public class CalendarActivity extends AppCompatActivity {
         calendar.add(Calendar.DATE, -dayOfWeek + 2);
         System.out.println("data = " + calendar.getTime());
 
-        setDayOfMonthOnButtons(calendar, monthAndYear);
+        mon.setOnClickListener(v -> showDate(0));
+        tue.setOnClickListener(v -> showDate(1));
+        wed.setOnClickListener(v -> showDate(2));
+        thu.setOnClickListener(v -> showDate(3));
+        fri.setOnClickListener(v -> showDate(4));
+        sat.setOnClickListener(v -> showDate(5));
+        sun.setOnClickListener(v -> showDate(6));
 
-        setTimeOnControls(eight, saveHour, "08:00", bookNow);
-        setTimeOnControls(ten, saveHour, "10:00", bookNow);
-        setTimeOnControls(twelve, saveHour, "12:00", bookNow);
-        setTimeOnControls(two, saveHour, "14:00", bookNow);
-        setTimeOnControls(four, saveHour, "16:00", bookNow);
-        setTimeOnControls(six, saveHour, "18:00", bookNow);
+        refreshView(calendar, monthAndYear);
+
+        setTimeOnControls(eight, saveHour, "08:00");
+        setTimeOnControls(ten, saveHour, "10:00");
+        setTimeOnControls(twelve, saveHour, "12:00");
+        setTimeOnControls(two, saveHour, "14:00");
+        setTimeOnControls(four, saveHour, "16:00");
+        setTimeOnControls(six, saveHour, "18:00");
 
         bookNow.setOnClickListener(v ->
                 openPersonActivity(effectType, dateString, timeString, variant));
@@ -110,9 +100,9 @@ public class CalendarActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void setTimeOnControls(Button button, TextView textView, String hour, Button bookNow) {
+    private void setTimeOnControls(Button button, TextView saveHour, String hour) {
         button.setOnClickListener(v -> {
-            textView.setText(hour);
+            saveHour.setText(hour);
             timeString = hour;
             lockOrUnlockButton(bookNow);
         });
@@ -124,18 +114,18 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
 
-    private Integer countNumberOfDayInCircle(Integer dayOfMonth, Integer circleOfNumber,
+    private Integer countNumberOfDayInCircle(Integer dayOfMonth, Integer numberToAdd,
                                              Integer numberOfDaysInCurrentMonth) {
-        Integer different = dayOfMonth + circleOfNumber;
-        if (different > numberOfDaysInCurrentMonth) {
-            return different - numberOfDaysInCurrentMonth;
+        Integer dayOfMonthCandidate = dayOfMonth + numberToAdd;
+        if (dayOfMonthCandidate > numberOfDaysInCurrentMonth) {
+            return dayOfMonthCandidate - numberOfDaysInCurrentMonth;
 
         } else {
-            return different;
+            return dayOfMonthCandidate;
         }
     }
 
-    private void setDayOfMonthOnButtons(Calendar calendar, TextView nameOfMonth) {
+    private void refreshView(Calendar calendar, TextView nameOfMonth) {
         Integer dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
         Integer year = calendar.get(Calendar.YEAR);
         Integer month = calendar.get(Calendar.MONTH) + 1;
@@ -150,11 +140,11 @@ public class CalendarActivity extends AppCompatActivity {
         sun.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 6, daysInMonth)));
 
         Calendar calendarForFirstCircle = (Calendar) calendar.clone();
-        String nameOfMonthForFirstCircle = getNameOfMonths(calendarForFirstCircle.get(Calendar.MONTH));
+        String nameOfMonthForFirstCircle = DateUtils.getNameOfMonth(calendarForFirstCircle.get(Calendar.MONTH));
 
         Calendar calendarForLastCircle = (Calendar) calendar.clone();
         calendarForLastCircle.add(Calendar.DATE, 6);
-        String nameOfMonthForLastCircle = getNameOfMonths(calendarForLastCircle.get(Calendar.MONTH));
+        String nameOfMonthForLastCircle = DateUtils.getNameOfMonth(calendarForLastCircle.get(Calendar.MONTH));
 
         if (nameOfMonthForFirstCircle.equals(nameOfMonthForLastCircle)) {
             nameOfMonth.setText(nameOfMonthForFirstCircle);
@@ -165,34 +155,15 @@ public class CalendarActivity extends AppCompatActivity {
 //        sun.setBackgroundColor(Color.parseColor("#DD090A"));
     }
 
-    private String getNameOfMonths(Integer numberOfMonth) {
+    private void showDate(Integer numberOfDaysToAdd) {
 
-        switch (numberOfMonth) {
-            case 0:
-                return "January";
-            case 1:
-                return "February";
-            case 2:
-                return "March";
-            case 3:
-                return "April";
-            case 4:
-                return "May";
-            case 5:
-                return "June";
-            case 6:
-                return "July";
-            case 7:
-                return "August";
-            case 8:
-                return "September";
-            case 9:
-                return "October";
-            case 10:
-                return "November";
-            default:
-                return "December";
-
-        }
+        Date date = calendar.getTime();
+        dateString = date.toString();
+        Calendar calendarCopy = (Calendar) calendar.clone();
+        calendarCopy.add(Calendar.DATE, numberOfDaysToAdd);
+        String prettyDate = DateUtils.getDayAndMonth(calendarCopy.getTime());
+        saveDate.setText(prettyDate);
+        dateString = prettyDate;
+        lockOrUnlockButton(bookNow);
     }
 }
