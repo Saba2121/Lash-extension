@@ -38,6 +38,7 @@ public class ChooseServiceActivity extends AppCompatActivity implements OnChoose
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
 
+        makeABooking = findViewById(R.id.makeABooking);
         RecyclerView recyclerView = findViewById(R.id.servicesRecyclerView);
         ServiceAdapter serviceAdapter = new ServiceAdapter(this);
         List<StyleDto> allServices = Arrays.asList(
@@ -104,7 +105,6 @@ public class ChooseServiceActivity extends AppCompatActivity implements OnChoose
         recyclerView.setItemAnimator(null);
         recyclerView.setAdapter(serviceAdapter);
 
-        makeABooking = findViewById(R.id.makeABooking);
         makeABooking.setEnabled(false);
         makeABooking.setOnClickListener(v -> openCalendarActivity(effectType, variant));
 

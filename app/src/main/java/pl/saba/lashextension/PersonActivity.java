@@ -13,7 +13,7 @@ import com.saba.lashextension.R;
 import java.util.Objects;
 
 public class PersonActivity extends AppCompatActivity {
-    private EditText name = null;
+    private String name = null;
     private EditText lastName = null;
     private EditText numberPhone = null;
 
@@ -22,10 +22,10 @@ public class PersonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person);
 
-        EditText name = findViewById(com.saba.lashextension.R.id.nameEditText);
-        EditText lastName = findViewById(com.saba.lashextension.R.id.lastNameEditText);
-        EditText numberPhone = findViewById(com.saba.lashextension.R.id.numberPhoneEditText);
-        Button appointment = findViewById(com.saba.lashextension.R.id.appointmentBtn);
+        EditText name = findViewById(R.id.nameEditText);
+        EditText lastName = findViewById(R.id.lastNameEditText);
+        EditText numberPhone = findViewById(R.id.numberPhoneEditText);
+        Button appointment = findViewById(R.id.appointmentBtn);
 
         appointment.setOnClickListener(v -> {
             openOrderDetailsActivity(effectType, dateString, timeString, variant);

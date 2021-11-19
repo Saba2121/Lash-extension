@@ -11,12 +11,6 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="pl.saba.lashextension.PersonActivity" />
-        <!-- <action android:name="android.intent.action.MAIN"/> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
-        <!-- <intent-filter/> -->
-        <!-- <activity android:name=".SignUpActivity"></activity> -->
-        <!-- </activity> -->
-
         <activity android:name="pl.saba.lashextension.OrderDetailsActivity" />
         <activity android:name="pl.saba.lashextension.CalendarActivity" />
         <activity android:name="pl.saba.lashextension.ContactActivity" />
@@ -26,7 +20,6 @@
         <activity android:name="pl.saba.lashextension.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

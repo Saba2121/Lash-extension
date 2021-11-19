@@ -13,6 +13,7 @@ import com.saba.lashextension.R;
 
 
 public class OrderDetailsActivity extends AppCompatActivity {
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +21,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
         TextView value = findViewById(R.id.orderServiceTypeValue);
         TextView valueDate = findViewById(R.id.orderServiceDateValue);
         TextView valueTime = findViewById(R.id.orderServiceHourValue);
-        TextView valueVariant = findViewById(R.id.serviceVariant);
+        TextView valueVariant = findViewById(R.id.orderServiceVariantValue);
+        Button submit = findViewById(R.id.submitBtn);
 
 
         String effectTypeString = getIntent().getStringExtra("effectType");
@@ -35,8 +37,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
         String variant = getIntent().getStringExtra("variant");
         valueVariant.setText(variant);
 
-
-        Button submit = findViewById(R.id.submitBtn);
         submit.setOnClickListener(v -> {
             openMainActivity();
             Toast.makeText(this, "Your visit is confirmed", Toast.LENGTH_SHORT).show();

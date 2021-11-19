@@ -11,16 +11,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.saba.lashextension.R;
 
 import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import static java.lang.String.valueOf;
+import static pl.saba.lashextension.CalendarActivityHelper.countNumberOfDayInCircle;
 
 public class CalendarActivity extends AppCompatActivity {
     private String dateString = null;
     private String timeString = null;
-    private String variant;
     private Button mon, tue, wed, thu, fri, sat, sun;
     private Button bookNow;
     private Calendar calendar;
@@ -114,17 +117,6 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
 
-    private Integer countNumberOfDayInCircle(Integer dayOfMonth, Integer numberToAdd,
-                                             Integer numberOfDaysInCurrentMonth) {
-        Integer dayOfMonthCandidate = dayOfMonth + numberToAdd;
-        if (dayOfMonthCandidate > numberOfDaysInCurrentMonth) {
-            return dayOfMonthCandidate - numberOfDaysInCurrentMonth;
-
-        } else {
-            return dayOfMonthCandidate;
-        }
-    }
-
     private void refreshView(Calendar calendar, TextView nameOfMonth) {
         Integer dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
         Integer year = calendar.get(Calendar.YEAR);
@@ -138,6 +130,7 @@ public class CalendarActivity extends AppCompatActivity {
         fri.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 4, daysInMonth)));
         sat.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 5, daysInMonth)));
         sun.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 6, daysInMonth)));
+        markCurrentDay(Collections.emptyList());
 
         Calendar calendarForFirstCircle = (Calendar) calendar.clone();
         String nameOfMonthForFirstCircle = DateUtils.getNameOfMonth(calendarForFirstCircle.get(Calendar.MONTH));
@@ -150,9 +143,9 @@ public class CalendarActivity extends AppCompatActivity {
             nameOfMonth.setText(nameOfMonthForFirstCircle);
 
         } else {
-            nameOfMonth.setText(nameOfMonthForFirstCircle + "/ " + nameOfMonthForLastCircle);
+            nameOfMonth.setText(nameOfMonthForFirstCircle + "/" + nameOfMonthForLastCircle);
         }
-//        sun.setBackgroundColor(Color.parseColor("#DD090A"));
+
     }
 
     private void showDate(Integer numberOfDaysToAdd) {
@@ -165,5 +158,16 @@ public class CalendarActivity extends AppCompatActivity {
         saveDate.setText(prettyDate);
         dateString = prettyDate;
         lockOrUnlockButton(bookNow);
+    }
+
+    private void markCurrentDay(List<Button> buttons) {
+
+        Date now = new Date();
+        Date dateOfFirstCircle = calendar.getTime();
+        long dayDifference = ChronoUnit.DAYS.between(dateOfFirstCircle.toInstant(), now.toInstant());
+        System.out.println(dayDifference);
+
+
+//        date.setBackgroundColor(Color.parseColor("#7cfc00"));
     }
 }

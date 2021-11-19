@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Lash_extension</string>
+
+<string name="app_name">Lash_extension</string>
     <string name="welcome_button">Start</string>
     <string name="eyelash_styling_services">Eyelash styling services</string>
     <string name="natural_effect">Natural effect</string>
@@ -47,6 +48,5 @@
     <string name="hour">Hour:</string>
     <string name="variant">Variant:</string>
     <string name="confirm_order">if the data is correct, click submit</string>
-
 
 </resources>
