@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-
     <TextView
         android:id="@+id/nameOfMonthTextView"
         android:layout_width="wrap_content"
@@ -17,52 +16,52 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@id/tueBtn"
         app:layout_constraintEnd_toStartOf="@id/nextBtn"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/previousBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
         tools:text="October 2021" />
 
     <Button
         android:id="@+id/previousBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:gravity="center"
-        android:textSize="25sp"
         android:layout_marginStart="15dp"
         android:background="@drawable/ic_arrow_left"
+        android:gravity="center"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@id/monBtn"
         app:layout_constraintEnd_toStartOf="@id/nameOfMonthTextView"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/nextBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/ic_arrow_right"
         android:gravity="center"
         android:orientation="vertical"
         android:textSize="25sp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/ic_arrow_right"
         app:layout_constraintBottom_toTopOf="@id/thuBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/nameOfMonthTextView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/monTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="15sp"
         android:text="@string/mon"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/monBtn"
         app:layout_constraintEnd_toStartOf="@id/tueTextView"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameOfMonthTextView"
-        app:layout_constraintHorizontal_chainStyle="spread"
         tools:text="Mon" />
 
     <Button
@@ -71,9 +70,9 @@
         android:layout_height="60dp"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="10dp"
+        android:background="@drawable/button"
         android:textColor="@color/black"
         android:theme="@style/CalendarButtonStyle"
-        android:background="@drawable/calendar_buttons"
         app:layout_constraintBottom_toTopOf="@id/satTextView"
         app:layout_constraintEnd_toStartOf="@id/tueBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,8 +85,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="15sp"
         android:text="@string/tue"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/tueBtn"
         app:layout_constraintEnd_toStartOf="@id/wedTextView"
         app:layout_constraintStart_toEndOf="@id/monTextView"
@@ -98,11 +97,11 @@
         android:id="@+id/tueBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button"
         android:textColor="@color/black"
         android:theme="@style/CalendarButtonStyle"
-        android:background="@drawable/calendar_buttons"
         app:layout_constraintBottom_toTopOf="@id/satTextView"
         app:layout_constraintEnd_toStartOf="@id/wedBtn"
         app:layout_constraintStart_toEndOf="@id/monBtn"
@@ -114,8 +113,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="15sp"
         android:text="@string/wed"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/wedBtn"
         app:layout_constraintEnd_toStartOf="@id/thuTextView"
         app:layout_constraintStart_toEndOf="@id/tueTextView"
@@ -128,9 +127,9 @@
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:background="@drawable/button"
         android:textColor="@color/black"
         android:theme="@style/CalendarButtonStyle"
-        android:background="@drawable/calendar_buttons"
         app:layout_constraintBottom_toTopOf="@id/satTextView"
         app:layout_constraintEnd_toStartOf="@id/thuBtn"
         app:layout_constraintStart_toEndOf="@id/tueBtn"
@@ -142,8 +141,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="15sp"
         android:text="@string/thu"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/thuBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/wedTextView"
@@ -154,17 +153,16 @@
         android:id="@+id/thuBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="45dp"
         android:layout_marginStart="10dp"
+        android:layout_marginEnd="45dp"
+        android:background="@drawable/button"
         android:textColor="@color/black"
         android:theme="@style/CalendarButtonStyle"
-        android:background="@drawable/calendar_buttons"
         app:layout_constraintBottom_toTopOf="@id/satTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/wedBtn"
         app:layout_constraintTop_toBottomOf="@id/thuTextView"
         tools:text="18" />
-
 
     <TextView
         android:id="@+id/friTextView"
@@ -172,8 +170,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:gravity="center"
-        android:textSize="15sp"
         android:text="@string/fri"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/friBtn"
         app:layout_constraintEnd_toStartOf="@id/satTextView"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -187,8 +185,8 @@
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="10dp"
+        android:background="@drawable/button"
         android:textColor="@color/black"
-        android:background="@drawable/calendar_buttons"
         android:theme="@style/CalendarButtonStyle"
         app:layout_constraintBottom_toTopOf="@id/saveHour"
         app:layout_constraintEnd_toStartOf="@id/satBtn"
@@ -202,8 +200,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="15sp"
         android:text="@string/sat"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/satBtn"
         app:layout_constraintEnd_toStartOf="@id/sunTextView"
         app:layout_constraintStart_toEndOf="@id/friTextView"
@@ -216,9 +214,9 @@
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:background="@drawable/button"
         android:textColor="@color/black"
         android:theme="@style/CalendarButtonStyle"
-        android:background="@drawable/calendar_buttons"
         app:layout_constraintBottom_toTopOf="@id/saveHour"
         app:layout_constraintEnd_toStartOf="@id/sunBtn"
         app:layout_constraintStart_toEndOf="@id/friBtn"
@@ -231,8 +229,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:gravity="center"
-        android:textSize="15sp"
         android:text="@string/sun"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/sunBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/satTextView"
@@ -243,11 +241,11 @@
         android:id="@+id/sunBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="60dp"
         android:layout_marginStart="10dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button"
         android:textColor="@color/black"
         android:theme="@style/CalendarButtonStyle"
-        android:background="@drawable/calendar_buttons"
         app:layout_constraintBottom_toTopOf="@id/saveHour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/satBtn"
@@ -262,12 +260,24 @@
         android:gravity="center"
         android:text="@string/save_date"
         android:textAllCaps="false"
+        android:textColor="@color/black"
         android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@id/eight"
-        app:layout_constraintEnd_toStartOf="@id/saveHour"
+        app:layout_constraintEnd_toStartOf="@id/info"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sunBtn"
         tools:text="11:01" />
+
+    <ImageView
+        android:id="@+id/info"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_info"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@id/ten"
+        app:layout_constraintEnd_toStartOf="@id/saveHour"
+        app:layout_constraintStart_toEndOf="@id/saveDate"
+        app:layout_constraintTop_toBottomOf="@id/satBtn" />
 
     <TextView
         android:id="@+id/saveHour"
@@ -276,14 +286,13 @@
         android:fontFamily="cursive"
         android:gravity="center"
         android:text="@string/save_hour"
-        android:textAllCaps="false"
         android:textSize="45sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/twelve"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/saveDate"
+        app:layout_constraintStart_toEndOf="@id/info"
         app:layout_constraintTop_toBottomOf="@id/sunBtn"
         tools:text="12:00" />
-
 
     <Button
         android:id="@+id/eight"
@@ -293,9 +302,9 @@
         android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toTopOf="@id/two"
         app:layout_constraintEnd_toStartOf="@id/ten"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/saveDate"
-        app:layout_constraintHorizontal_chainStyle="spread" />
+        app:layout_constraintTop_toBottomOf="@id/saveDate" />
 
     <Button
         android:id="@+id/ten"
@@ -303,10 +312,11 @@
         android:layout_height="wrap_content"
         android:text="@string/ten"
         android:theme="@style/ButtonStyle"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@id/four"
         app:layout_constraintEnd_toStartOf="@id/twelve"
         app:layout_constraintStart_toEndOf="@id/eight"
-        app:layout_constraintTop_toBottomOf="@id/saveDate" />
+        app:layout_constraintTop_toBottomOf="@id/info" />
 
     <Button
         android:id="@+id/twelve"
@@ -327,9 +337,9 @@
         android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toTopOf="@id/bookNow"
         app:layout_constraintEnd_toStartOf="@id/four"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/eight"
-        app:layout_constraintHorizontal_chainStyle="spread" />
+        app:layout_constraintTop_toBottomOf="@id/eight" />
 
     <Button
         android:id="@+id/four"
@@ -353,7 +363,6 @@
         app:layout_constraintStart_toEndOf="@id/four"
         app:layout_constraintTop_toBottomOf="@id/twelve" />
 
-
     <Button
         android:id="@+id/bookNow"
         android:layout_width="wrap_content"
@@ -367,6 +376,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/four" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
