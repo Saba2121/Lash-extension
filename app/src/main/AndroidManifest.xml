@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="pl.saba.lashextension.PersonActivity" />
+
         <activity android:name="pl.saba.lashextension.OrderDetailsActivity" />
+        <activity android:name="pl.saba.lashextension.PersonActivity" />
         <activity android:name="pl.saba.lashextension.CalendarActivity" />
         <activity android:name="pl.saba.lashextension.ContactActivity" />
         <activity android:name="pl.saba.lashextension.GalleryActivity" />

@@ -23,7 +23,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
     private StyleDto actual = null;
     private OnChooseServiceDtoListener onChooseServiceDtoListener;
 
-
     public ServiceAdapter(OnChooseServiceDtoListener onChooseServiceDtoListener) {
         this.onChooseServiceDtoListener = onChooseServiceDtoListener;
 

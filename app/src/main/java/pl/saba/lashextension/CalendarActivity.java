@@ -27,30 +27,32 @@ import static pl.saba.lashextension.CalendarActivityHelper.countNumberOfDayInCir
 
 public class CalendarActivity extends AppCompatActivity {
     private String dateString = null, timeString = null;
-    private Button bookNow, mon, tue, wed, thu, fri, sat, sun, eight, ten, twelve, two, four, six;
+    private Button bookNow, mon, tue, wed, thu, fri, sat, sun, eight, ten, twelve, two, four, six, dialog;
     private Calendar calendar;
-    private TextView saveDate;
+    private TextView saveDate, saveHour;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
+
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
         String variant = getIntent().getStringExtra("variant");
 
+        dialog = findViewById(R.id.dialogBtn);
         bookNow = findViewById(R.id.bookNow);
-        TextView saveHour = findViewById(R.id.saveHour);
+        saveHour = findViewById(R.id.saveHour);
         saveDate = findViewById(R.id.saveDate);
         TextView monthAndYear = findViewById(R.id.nameOfMonthTextView);
         Button next = findViewById(R.id.nextBtn);
         Button previous = findViewById(R.id.previousBtn);
-        Button eight = findViewById(R.id.eight);
-        Button ten = findViewById(R.id.ten);
-        Button twelve = findViewById(R.id.twelve);
-        Button two = findViewById(R.id.two);
-        Button four = findViewById(R.id.four);
-        Button six = findViewById(R.id.six);
+        eight = findViewById(R.id.eight);
+        ten = findViewById(R.id.ten);
+        twelve = findViewById(R.id.twelve);
+        two = findViewById(R.id.two);
+        four = findViewById(R.id.four);
+        six = findViewById(R.id.six);
         mon = findViewById(R.id.monBtn);
         tue = findViewById(R.id.tueBtn);
         wed = findViewById(R.id.wedBtn);
@@ -89,15 +91,26 @@ public class CalendarActivity extends AppCompatActivity {
 
         refreshDayButtons(calendar, monthAndYear, dayCollection);
 
-        setTimeOnControls(eight, saveHour);
-        setTimeOnControls(ten, saveHour);
-        setTimeOnControls(twelve, saveHour);
-        setTimeOnControls(two, saveHour);
-        setTimeOnControls(four, saveHour);
-        setTimeOnControls(six, saveHour);
+        setTimeOnControls(eight);
+        setTimeOnControls(ten);
+        setTimeOnControls(twelve);
+        setTimeOnControls(two);
+        setTimeOnControls(four);
+        setTimeOnControls(six);
+
+        dialog.setOnClickListener(v -> {
+            openDialogActivity();
+        });
+
 
         bookNow.setOnClickListener(v ->
                 openPersonActivity(effectType, dateString, timeString, variant));
+    }
+
+    public void openDialogActivity() {
+        DialogActivity dialogActivity = new DialogActivity();
+        dialogActivity.show(getSupportFragmentManager(), "cos");
+
     }
 
     public void openPersonActivity(EffectType effectType, String dateString, String timeString, String variant) {
@@ -107,11 +120,13 @@ public class CalendarActivity extends AppCompatActivity {
         intent.putExtra("time", timeString);
         intent.putExtra("variant", variant);
         startActivity(intent);
+
     }
 
-    private void setTimeOnControls(Button button, TextView saveHour) {
+    private void setTimeOnControls(Button button) {
         button.setOnClickListener(v -> {
-            timeString = saveHour.getText().toString();
+            timeString = button.getText().toString();
+            saveHour.setText(timeString);
             lockOrUnlockButton(bookNow);
         });
     }
@@ -135,6 +150,7 @@ public class CalendarActivity extends AppCompatActivity {
         fri.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 4, daysInMonth)));
         sat.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 5, daysInMonth)));
         sun.setText(valueOf(countNumberOfDayInCircle(dayOfMonth, 6, daysInMonth)));
+
         List<Button> buttons = Arrays.asList(mon, tue, wed, thu, fri, sat, sun);
         buttons.forEach(button -> button.setTextColor(Color.parseColor("#000000")));
         markCurrentDay(buttons);
@@ -164,6 +180,11 @@ public class CalendarActivity extends AppCompatActivity {
         Calendar calendarCopy = (Calendar) calendar.clone();
         calendarCopy.add(Calendar.DATE, numberOfDaysToAdd);
         Date dateAfterAddDays = calendarCopy.getTime();
+
+        List<Button> hourButtons = Arrays.asList(eight, ten, twelve, two, four, six);
+        hourButtons.forEach(button -> button.setEnabled(false));
+        saveHour.setText("");
+        timeString = null;
         AvailableHoursForDay availableHoursForDay = dayCollection.getAvailableHoursForDay(dateAfterAddDays);
 
         if (availableHoursForDay != null) {
@@ -179,23 +200,21 @@ public class CalendarActivity extends AppCompatActivity {
 
                         }
                         if (integer == 12) {
-                            twelve.setEnabled(false);
+                            twelve.setEnabled(true);
 
                         }
                         if (integer == 2) {
-                            two.setEnabled(false);
+                            two.setEnabled(true);
 
                         }
                         if (integer == 4) {
-                            four.setEnabled(false);
+                            four.setEnabled(true);
 
                         }
                         if (integer == 6) {
-                            six.setEnabled(false);
+                            six.setEnabled(true);
 
                         }
-
-
                     });
         }
         String prettyDate = DateUtils.getDayAndMonth(calendarCopy.getTime());
@@ -213,7 +232,6 @@ public class CalendarActivity extends AppCompatActivity {
         if (dayDifference >= 0 && dayDifference <= 6) {
             Button button = buttons.get((int) dayDifference);
             button.setTextColor(Color.parseColor("#7cfc00"));
-//            button.getBackground().setColorFilter(ContextCompat.getColor(this, R.color.green), PorterDuff.Mode.MULTIPLY);
 
 
 //        } else {
@@ -235,12 +253,6 @@ public class CalendarActivity extends AppCompatActivity {
         if (dayDifference >= 0 && dayDifference <= 6) {
             Button button = buttons.get((int) dayDifference);
             button.setTextColor(Color.parseColor("#DD040A"));
-//            button.setBackgroundColor(getResources().getColor(R.color.red));
-//            button.setBackgroundColor(button.getContext().getResources().getColor(R.color.red));
-//            button.setBackgroundColor(Color.RED);
-//            button.setBackgroundColor("#DD040A");
-//            button.getBackground().setColorFilter(ContextCompat.getColor(this, R.color.red), PorterDuff.Mode.MULTIPLY);
-
         }
     }
 }

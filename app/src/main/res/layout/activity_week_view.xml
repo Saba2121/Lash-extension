@@ -263,21 +263,23 @@
         android:textColor="@color/black"
         android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@id/eight"
-        app:layout_constraintEnd_toStartOf="@id/info"
+        app:layout_constraintEnd_toStartOf="@id/dialogBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sunBtn"
         tools:text="11:01" />
 
-    <ImageView
-        android:id="@+id/info"
+    <Button
+        android:id="@+id/dialogBtn"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/ic_info"
         android:layout_marginTop="5dp"
+        android:background="@drawable/ic_info"
+        android:textSize="11dp"
         app:layout_constraintBottom_toTopOf="@id/ten"
-        app:layout_constraintEnd_toStartOf="@id/saveHour"
-        app:layout_constraintStart_toEndOf="@id/saveDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/satBtn" />
+
 
     <TextView
         android:id="@+id/saveHour"
@@ -290,7 +292,7 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/twelve"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/info"
+        app:layout_constraintStart_toEndOf="@id/dialogBtn"
         app:layout_constraintTop_toBottomOf="@id/sunBtn"
         tools:text="12:00" />
 
@@ -300,6 +302,7 @@
         android:layout_height="wrap_content"
         android:text="@string/eight"
         android:theme="@style/ButtonStyle"
+        android:enabled="false"
         app:layout_constraintBottom_toTopOf="@id/two"
         app:layout_constraintEnd_toStartOf="@id/ten"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -312,17 +315,19 @@
         android:layout_height="wrap_content"
         android:text="@string/ten"
         android:theme="@style/ButtonStyle"
-        android:layout_marginTop="10dp"
+        android:enabled="false"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toTopOf="@id/four"
         app:layout_constraintEnd_toStartOf="@id/twelve"
         app:layout_constraintStart_toEndOf="@id/eight"
-        app:layout_constraintTop_toBottomOf="@id/info" />
+        app:layout_constraintTop_toBottomOf="@id/saveHour" />
 
     <Button
         android:id="@+id/twelve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/twelve"
+        android:enabled="false"
         android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toTopOf="@id/six"
         app:layout_constraintEnd_toEndOf="parent"
@@ -334,6 +339,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/two"
+        android:enabled="false"
         android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toTopOf="@id/bookNow"
         app:layout_constraintEnd_toStartOf="@id/four"
@@ -347,6 +353,7 @@
         android:layout_height="wrap_content"
         android:text="@string/four"
         android:theme="@style/ButtonStyle"
+        android:enabled="false"
         app:layout_constraintBottom_toTopOf="@id/bookNow"
         app:layout_constraintEnd_toStartOf="@id/six"
         app:layout_constraintStart_toEndOf="@id/two"
@@ -357,6 +364,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/six"
+        android:enabled="false"
         android:theme="@style/ButtonStyle"
         app:layout_constraintBottom_toTopOf="@id/bookNow"
         app:layout_constraintEnd_toEndOf="parent"

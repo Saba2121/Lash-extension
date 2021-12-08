@@ -27,7 +27,6 @@ public class LashServicesActivity extends AppCompatActivity {
         lightVolume.setOnClickListener(v -> openChooseServiceActivity(EffectType.LIGHT));
         megaVolume.setOnClickListener(v -> openChooseServiceActivity(EffectType.VOLUME));
         kimEffect.setOnClickListener(v -> openChooseServiceActivity(EffectType.KIM));
-
         contact.setOnClickListener(v -> openContactActivity());
         gallery.setOnClickListener(v -> openGalleryActivity());
 

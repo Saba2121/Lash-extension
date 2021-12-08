@@ -18,7 +18,7 @@ public class PersonActivity extends AppCompatActivity {
     private EditText numberPhone = null;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person);
 
@@ -39,8 +39,7 @@ public class PersonActivity extends AppCompatActivity {
     EffectType effectType = EffectType.valueOf(effectTypeString);
 
 
-    public void openOrderDetailsActivity(EffectType effectType, String dateString, String timeString,
-                                         String variant) {
+    public void openOrderDetailsActivity(EffectType effectType, String dateString, String timeString, String variant) {
         Intent intent = new Intent(this, OrderDetailsActivity.class);
         intent.putExtra("effectType", effectType.name());
         System.out.println(dateString);

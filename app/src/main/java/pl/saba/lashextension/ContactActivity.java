@@ -11,7 +11,7 @@ import com.saba.lashextension.R;
 
 public class ContactActivity extends AppCompatActivity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
         Button goBackContact = findViewById(R.id.goBackContact);

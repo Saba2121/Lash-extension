@@ -18,12 +18,12 @@ public class OrderDetailsActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
+
         TextView value = findViewById(R.id.orderServiceTypeValue);
         TextView valueDate = findViewById(R.id.orderServiceDateValue);
         TextView valueTime = findViewById(R.id.orderServiceHourValue);
         TextView valueVariant = findViewById(R.id.orderServiceVariantValue);
         Button submit = findViewById(R.id.submitBtn);
-
 
         String effectTypeString = getIntent().getStringExtra("effectType");
         value.setText(effectTypeString);
