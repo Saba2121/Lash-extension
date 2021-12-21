@@ -1,5 +1,9 @@
 package pl.saba.lashextension;
 
+import android.widget.Button;
+
+import java.util.Objects;
+
 public class CalendarActivityHelper {
 
     public static Integer countNumberOfDayInCircle(Integer dayOfMonth, Integer numberToAdd,
@@ -13,5 +17,8 @@ public class CalendarActivityHelper {
         }
     }
 
-
+    public static void lockOrUnlockButton(Button bookNow, String dateString, String timeString) {
+        Boolean result = Objects.nonNull(dateString) && Objects.nonNull(timeString);
+        bookNow.setEnabled(result);
+    }
 }

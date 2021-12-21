@@ -16,6 +16,8 @@ import com.saba.lashextension.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.saba.lashextension.OnChooseServiceDtoListener;
+
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
 
     private List<StyleDto> serviceList = new ArrayList<>();

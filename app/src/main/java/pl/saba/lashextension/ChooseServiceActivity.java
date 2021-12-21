@@ -15,7 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import pl.saba.lashextension.servicelist.OnChooseServiceDtoListener;
 import pl.saba.lashextension.servicelist.ServiceAdapter;
 import pl.saba.lashextension.servicelist.StyleDto;
 
@@ -28,7 +27,6 @@ import static pl.saba.lashextension.EffectType.VOLUME;
 public class ChooseServiceActivity extends AppCompatActivity implements OnChooseServiceDtoListener {
     private StyleDto actualChoose = null;
     private Button makeABooking;
-    private String variant;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -106,7 +104,8 @@ public class ChooseServiceActivity extends AppCompatActivity implements OnChoose
         recyclerView.setAdapter(serviceAdapter);
 
         makeABooking.setEnabled(false);
-        makeABooking.setOnClickListener(v -> openCalendarActivity(effectType, variant));
+
+        makeABooking.setOnClickListener(v -> openCalendarActivity(effectType, actualChoose.getServiceVariant()));
 
     }
 
@@ -115,12 +114,11 @@ public class ChooseServiceActivity extends AppCompatActivity implements OnChoose
         intent.putExtra("effectType", effectType.name());
         intent.putExtra("variant", variant);
         startActivity(intent);
-
     }
 
     @Override
-    public void setActualChoose(StyleDto serviceDto) {
-        this.actualChoose = serviceDto;
+    public void setActualChoose(StyleDto styleDto) {
+        this.actualChoose = styleDto;
         makeABooking.setEnabled(true);
     }
 

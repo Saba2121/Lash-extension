@@ -1,11 +1,9 @@
-package pl.saba.lashextension.servicelist;
+package pl.saba.lashextension;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-import pl.saba.lashextension.AvailableHoursForDay;
 
 public class DayCollection {
 

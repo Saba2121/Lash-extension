@@ -10,31 +10,29 @@
 
     <TextView
         android:id="@+id/orderServiceTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:padding="5dp"
+        android:padding="3dp"
         android:text="@string/order_summary"
         android:textSize="55sp"
         android:theme="@style/TextStyle"
         app:layout_constraintBottom_toTopOf="@id/confirmVisitTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/confirmVisitTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:padding="10dp"
+        android:theme="@style/TextStyle"
         android:text="@string/confirm_visit"
         android:textAllCaps="true"
-        android:textColor="@color/purple_200"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderServiceTextView" />
@@ -43,15 +41,16 @@
         android:id="@+id/orderServiceDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
         android:gravity="center"
+        android:fontFamily="sans-serif-black"
         android:text="@string/date"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
+        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderServiceHour"
-        app:layout_constraintEnd_toStartOf="@id/orderServiceDateValue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView" />
+        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
+        app:layout_constraintHorizontal_chainStyle="packed" />
 
     <TextView
         android:id="@+id/orderServiceDateValue"
@@ -59,12 +58,12 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:textColor="@color/purple_200"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:layout_marginEnd="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderServiceHourValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/orderServiceDate"
         app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
+        app:layout_constraintHorizontal_chainStyle="packed"
         tools:text="date" />
 
 
@@ -77,8 +76,8 @@
         android:text="@string/hour"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
+        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderServiceType"
-        app:layout_constraintEnd_toStartOf="@id/orderServiceHourValue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderServiceDate" />
 
@@ -86,13 +85,12 @@
         android:id="@+id/orderServiceHourValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="55dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:textColor="@color/purple_200"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/orderServiceTypeValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/orderServiceHour"
         app:layout_constraintTop_toBottomOf="@id/orderServiceDateValue"
         tools:text="hour" />
 
@@ -102,11 +100,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Effect type:"
+        android:text="@string/effect_type"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
+        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderServiceVariant"
-        app:layout_constraintEnd_toStartOf="@id/orderServiceTypeValue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderServiceHour" />
 
@@ -116,11 +114,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:textColor="@color/purple_200"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderServiceVariantValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/orderServiceType"
         app:layout_constraintTop_toBottomOf="@id/orderServiceHourValue"
         tools:text="effect type 1:1" />
 
@@ -133,8 +131,8 @@
         android:text="@string/variant"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
+        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
-        app:layout_constraintEnd_toStartOf="@id/orderServiceVariantValue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderServiceType" />
 
@@ -142,20 +140,19 @@
         android:id="@+id/orderServiceVariantValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="55dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:textColor="@color/purple_200"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/orderServiceVariant"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceHourValue"
+        app:layout_constraintTop_toBottomOf="@id/orderServiceTypeValue"
         tools:text="variant - 2D" />
 
 
     <TextView
         android:id="@+id/confirmationOrder"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:gravity="center"

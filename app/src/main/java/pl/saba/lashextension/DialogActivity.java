@@ -13,8 +13,7 @@ public class DialogActivity extends AppCompatDialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Information")
-                .setMessage("Current day - green                                                                         Holidays - red                 " +
-                        "                                                                                Unavailable - grey")
+                .setMessage("Current day - green\nHolidays - red\nUnavailable - grey")
                 .setPositiveButton("ok", (dialog, which) -> {
                 });
 

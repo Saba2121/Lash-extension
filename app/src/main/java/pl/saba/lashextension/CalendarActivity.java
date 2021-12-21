@@ -13,17 +13,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.saba.lashextension.R;
 
 import java.time.YearMonth;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
-
-import pl.saba.lashextension.servicelist.DayCollection;
 
 import static java.lang.String.valueOf;
 import static pl.saba.lashextension.CalendarActivityHelper.countNumberOfDayInCircle;
+import static pl.saba.lashextension.DateUtils.canClickPreviousButton;
+import static pl.saba.lashextension.DateUtils.markCurrentDay;
+import static pl.saba.lashextension.DateUtils.markHoliday;
 
 public class CalendarActivity extends AppCompatActivity {
     private String dateString = null, timeString = null;
@@ -69,7 +68,7 @@ public class CalendarActivity extends AppCompatActivity {
         });
 
         previous.setOnClickListener(v -> {
-            if (canClickPreviousButton()) {
+            if (canClickPreviousButton(calendar)) {
                 calendar.add(Calendar.DATE, -7);
                 refreshDayButtons(calendar, monthAndYear, dayCollection);
             }
@@ -102,15 +101,13 @@ public class CalendarActivity extends AppCompatActivity {
             openDialogActivity();
         });
 
-
         bookNow.setOnClickListener(v ->
                 openPersonActivity(effectType, dateString, timeString, variant));
     }
 
     public void openDialogActivity() {
         DialogActivity dialogActivity = new DialogActivity();
-        dialogActivity.show(getSupportFragmentManager(), "cos");
-
+        dialogActivity.show(getSupportFragmentManager(), " ");
     }
 
     public void openPersonActivity(EffectType effectType, String dateString, String timeString, String variant) {
@@ -120,21 +117,14 @@ public class CalendarActivity extends AppCompatActivity {
         intent.putExtra("time", timeString);
         intent.putExtra("variant", variant);
         startActivity(intent);
-
     }
 
-    private void setTimeOnControls(Button button) {
+    public void setTimeOnControls(Button button) {
         button.setOnClickListener(v -> {
             timeString = button.getText().toString();
             saveHour.setText(timeString);
-            lockOrUnlockButton(bookNow);
+            CalendarActivityHelper.lockOrUnlockButton(bookNow, timeString, dateString);
         });
-    }
-
-    private void lockOrUnlockButton(Button bookNow) {
-        Boolean result = Objects.nonNull(dateString) && Objects.nonNull(timeString);
-        bookNow.setEnabled(result);
-
     }
 
     private void refreshDayButtons(Calendar calendar, TextView nameOfMonth, DayCollection dayCollection) {
@@ -153,34 +143,29 @@ public class CalendarActivity extends AppCompatActivity {
 
         List<Button> buttons = Arrays.asList(mon, tue, wed, thu, fri, sat, sun);
         buttons.forEach(button -> button.setTextColor(Color.parseColor("#000000")));
-        markCurrentDay(buttons);
-
+        markCurrentDay(buttons, calendar);
         Calendar calendarForFirstCircle = (Calendar) calendar.clone();
         String nameOfMonthForFirstCircle = DateUtils.getNameOfMonth(calendarForFirstCircle.get(Calendar.MONTH));
-
         Calendar calendarForLastCircle = (Calendar) calendar.clone();
         calendarForLastCircle.add(Calendar.DATE, 6);
         String nameOfMonthForLastCircle = DateUtils.getNameOfMonth(calendarForLastCircle.get(Calendar.MONTH));
 
         if (nameOfMonthForFirstCircle.equals(nameOfMonthForLastCircle)) {
             nameOfMonth.setText(nameOfMonthForFirstCircle);
-
         } else {
             nameOfMonth.setText(nameOfMonthForFirstCircle + "/" + nameOfMonthForLastCircle);
         }
-
         List<Date> holidays = dayCollection.getHolidays();
-        holidays.forEach(date -> markHoliday(date, buttons));
+        holidays.forEach(date -> markHoliday(date, buttons, calendar));
     }
 
-    private void refreshAvailableHours(Integer numberOfDaysToAdd, DayCollection dayCollection) {
+    public void refreshAvailableHours(Integer numberOfDaysToAdd, DayCollection dayCollection) {
 
         Date date = calendar.getTime();
         dateString = date.toString();
         Calendar calendarCopy = (Calendar) calendar.clone();
         calendarCopy.add(Calendar.DATE, numberOfDaysToAdd);
         Date dateAfterAddDays = calendarCopy.getTime();
-
         List<Button> hourButtons = Arrays.asList(eight, ten, twelve, two, four, six);
         hourButtons.forEach(button -> button.setEnabled(false));
         saveHour.setText("");
@@ -220,42 +205,12 @@ public class CalendarActivity extends AppCompatActivity {
         String prettyDate = DateUtils.getDayAndMonth(calendarCopy.getTime());
         saveDate.setText(prettyDate);
         dateString = prettyDate;
-        lockOrUnlockButton(bookNow);
-    }
-
-    private void markCurrentDay(List<Button> buttons) {
-
-        Date now = new Date();
-        Date dateOfFirstCircle = calendar.getTime();
-        long dayDifference = ChronoUnit.DAYS.between(dateOfFirstCircle.toInstant(), now.toInstant());
-
-        if (dayDifference >= 0 && dayDifference <= 6) {
-            Button button = buttons.get((int) dayDifference);
-            button.setTextColor(Color.parseColor("#7cfc00"));
-
-
-//        } else {
-//            buttons.forEach(button -> button.setTextColor(Color.parseColor("#000000")));
-        }
-    }
-
-    private Boolean canClickPreviousButton() {
-
-        Date now = new Date();
-        return now.getTime() <= calendar.getTime().getTime();
-    }
-
-    private void markHoliday(Date date, List<Button> buttons) {
-
-        Date dateOfFirstCircle = calendar.getTime();
-        long dayDifference = ChronoUnit.DAYS.between(dateOfFirstCircle.toInstant(), date.toInstant());
-
-        if (dayDifference >= 0 && dayDifference <= 6) {
-            Button button = buttons.get((int) dayDifference);
-            button.setTextColor(Color.parseColor("#DD040A"));
-        }
+        CalendarActivityHelper.lockOrUnlockButton(bookNow, timeString, dateString);
     }
 }
+
+
+
 
 
 

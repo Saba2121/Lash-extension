@@ -1,8 +1,14 @@
 package pl.saba.lashextension;
 
 
+import android.graphics.Color;
+import android.widget.Button;
+
 import java.text.SimpleDateFormat;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class DateUtils {
@@ -44,5 +50,36 @@ public class DateUtils {
         }
 
     }
+
+    public static void markHoliday(Date date, List<Button> buttons, Calendar calendar) {
+
+        Date dateOfFirstCircle = calendar.getTime();
+        long dayDifference = ChronoUnit.DAYS.between(dateOfFirstCircle.toInstant(), date.toInstant());
+
+        if (dayDifference >= 0 && dayDifference <= 6) {
+            Button button = buttons.get((int) dayDifference);
+            button.setTextColor(Color.parseColor("#DD040A"));
+        }
+    }
+
+    public static void markCurrentDay(List<Button> buttons, Calendar calendar) {
+
+        Date now = new Date();
+        Date dateOfFirstCircle = calendar.getTime();
+        long dayDifference = ChronoUnit.DAYS.between(dateOfFirstCircle.toInstant(), now.toInstant());
+
+        if (dayDifference >= 0 && dayDifference <= 6) {
+            Button button = buttons.get((int) dayDifference);
+            button.setTextColor(Color.parseColor("#7cfc00"));
+        }
+    }
+
+    public static Boolean canClickPreviousButton(Calendar calendar) {
+
+        Date now = new Date();
+        return now.getTime() <= calendar.getTime().getTime();
+    }
+
+
 }
 
