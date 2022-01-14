@@ -30,8 +30,7 @@
             android:id="@+id/serviceImage"
             android:layout_width="170dp"
             android:layout_height="135dp"
-            android:layout_marginStart="75dp"
-            android:background="@drawable/lash_ne_2" />
+            android:layout_marginStart="75dp" />
 
         <TextView
             android:id="@+id/servicePrice"

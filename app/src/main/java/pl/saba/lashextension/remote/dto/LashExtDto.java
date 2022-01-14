@@ -4,7 +4,7 @@ import pl.saba.lashextension.EffectType;
 
 public class LashExtDto {
 
-    private EffectType serviceName;
+    private String serviceName;
     private String serviceImage;
     private String servicePrice;
     private String serviceTime;
@@ -12,7 +12,7 @@ public class LashExtDto {
     private EffectType effectType;
 
 
-    public LashExtDto(EffectType serviceName, String servicePrice,
+    public LashExtDto(String serviceName, String servicePrice,
                       String serviceTime, String serviceVariant, EffectType effectType) {
         this.serviceName = serviceName;
         this.servicePrice = servicePrice;
@@ -22,7 +22,7 @@ public class LashExtDto {
 
     }
 
-    public EffectType getServiceName() {
+    public String getServiceName() {
         return serviceName;
     }
 

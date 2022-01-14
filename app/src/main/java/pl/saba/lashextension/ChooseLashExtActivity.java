@@ -18,6 +18,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import pl.saba.lashextension.http.api.LashExtApi;
 import pl.saba.lashextension.remote.dto.LashExtDto;
 import pl.saba.lashextension.servicelist.LashExt;
 import pl.saba.lashextension.servicelist.LashExtAdapter;
@@ -72,11 +73,11 @@ public class ChooseLashExtActivity extends AppCompatActivity implements OnChoose
                     public void onNext(List<LashExtDto> lashExtDtos) {
 
                         List<LashExt> cosmeticServices = lashExtDtos.stream()
-                                .map(lashExtDto -> new LashExt(lashExtDto
-                                        .getEffectType().toString(),
+                                .map(lashExtDto -> new LashExt(lashExtDto.getEffectType().toString(),
                                         lashExtDto.getServiceImage(),
                                         lashExtDto.getServicePrice(),
-                                        lashExtDto.getServiceTime(), lashExtDto.getEffectType(),
+                                        lashExtDto.getServiceTime(),
+                                        lashExtDto.getEffectType(),
                                         lashExtDto.getServiceVariant()))
                                 .collect(Collectors.toList());
                         lashExtAdapter.setServiceList(cosmeticServices);
@@ -86,7 +87,6 @@ public class ChooseLashExtActivity extends AppCompatActivity implements OnChoose
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
-
                     }
 
                     @Override

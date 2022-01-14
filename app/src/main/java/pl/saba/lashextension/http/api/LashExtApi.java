@@ -1,8 +1,9 @@
-package pl.saba.lashextension;
+package pl.saba.lashextension.http.api;
 
 import java.util.List;
 
 import io.reactivex.Observable;
+import pl.saba.lashextension.EffectType;
 import pl.saba.lashextension.remote.dto.LashExtDto;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

@@ -1,6 +1,9 @@
 package pl.saba.lashextension.servicelist;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,7 @@ import com.saba.lashextension.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.saba.lashextension.ImageUtils;
 import pl.saba.lashextension.OnChooseLashExtDtoListener;
 
 public class LashExtAdapter extends RecyclerView.Adapter<LashExtViewHolder> {
@@ -47,8 +51,16 @@ public class LashExtAdapter extends RecyclerView.Adapter<LashExtViewHolder> {
         LashExt service = serviceList.get(position);
         String serviceName = service.getServiceName();
         holder.getServiceNameTextView().setText(serviceName);
-//        String  serviceImage = service.getServiceImage();
-//        holder.getServiceImage().setText(serviceImage);
+        String serviceImage = service.getServiceImage();
+
+        // decode base64 string
+        byte[] bytes = Base64.decode(ImageUtils.getImageInBase64(), Base64.DEFAULT);
+        // Initialize bitmap
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        // set bitmap on imageView
+        holder.getServiceImage().setImageBitmap(bitmap);
+
+
         String servicePrice = service.getServicePrice();
         holder.getServicePriceTextView().setText(servicePrice);
         RadioButton serviceRadioBtn = holder.getServiceRadioBtn();

@@ -1,6 +1,7 @@
 package pl.saba.lashextension.servicelist;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ import com.saba.lashextension.R;
 
 public class LashExtViewHolder extends RecyclerView.ViewHolder {
     private final TextView serviceNameTextView;
-    //    private final TextView serviceImage;
+    private final ImageView serviceImage;
     private final TextView servicePriceTextView;
     private final RadioButton serviceRadioBtn;
     private final TextView serviceTimeTextView;
@@ -21,7 +22,7 @@ public class LashExtViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         serviceNameTextView = itemView.findViewById(R.id.serviceName);
-//        serviceImage = itemView.findViewById(R.id.serviceImage);
+        serviceImage = itemView.findViewById(R.id.serviceImage);
         servicePriceTextView = itemView.findViewById(R.id.servicePrice);
         serviceRadioBtn = itemView.findViewById(R.id.serviceRadioBtn);
         serviceTimeTextView = itemView.findViewById(R.id.serviceTime);
@@ -32,9 +33,9 @@ public class LashExtViewHolder extends RecyclerView.ViewHolder {
         return this.serviceNameTextView;
     }
 
-//    public TextView getServiceImage() {
-//        return this.serviceImage;
-//    }
+    public ImageView getServiceImage() {
+        return this.serviceImage;
+    }
 
     public TextView getServicePriceTextView() {
         return this.servicePriceTextView;
