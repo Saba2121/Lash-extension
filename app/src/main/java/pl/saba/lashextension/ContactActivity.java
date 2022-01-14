@@ -21,7 +21,7 @@ public class ContactActivity extends AppCompatActivity {
     }
 
     public void openLashServiceActivity() {
-        Intent intent = new Intent(this, LashServicesActivity.class);
+        Intent intent = new Intent(this, LashExtActivity.class);
         startActivity(intent);
     }
 }

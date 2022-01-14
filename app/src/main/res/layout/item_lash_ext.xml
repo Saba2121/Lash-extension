@@ -31,7 +31,7 @@
             android:layout_width="170dp"
             android:layout_height="135dp"
             android:layout_marginStart="75dp"
-            android:background="@drawable/service_ne_2" />
+            android:background="@drawable/lash_ne_2" />
 
         <TextView
             android:id="@+id/servicePrice"

@@ -1,7 +1,6 @@
 package pl.saba.lashextension.servicelist;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,24 +15,24 @@ import com.saba.lashextension.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.saba.lashextension.OnChooseServiceDtoListener;
+import pl.saba.lashextension.OnChooseLashExtDtoListener;
 
-public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
+public class LashExtAdapter extends RecyclerView.Adapter<LashExtViewHolder> {
 
-    private List<StyleDto> serviceList = new ArrayList<>();
+    private List<LashExt> serviceList = new ArrayList<>();
     private Context context;
-    private StyleDto actual = null;
-    private OnChooseServiceDtoListener onChooseServiceDtoListener;
+    private LashExt actual = null;
+    private OnChooseLashExtDtoListener onChooseLashExtDtoListener;
 
-    public ServiceAdapter(OnChooseServiceDtoListener onChooseServiceDtoListener) {
-        this.onChooseServiceDtoListener = onChooseServiceDtoListener;
+    public LashExtAdapter(OnChooseLashExtDtoListener onChooseLashExtDtoListener) {
+        this.onChooseLashExtDtoListener = onChooseLashExtDtoListener;
 
     }
 
     @Override
-    public ServiceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_service, parent, false);
-        return new ServiceViewHolder(itemView);
+    public LashExtViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lash_ext, parent, false);
+        return new LashExtViewHolder(itemView);
     }
 
     @Override
@@ -43,13 +42,13 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ServiceViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LashExtViewHolder holder, int position) {
 
-        StyleDto service = serviceList.get(position);
+        LashExt service = serviceList.get(position);
         String serviceName = service.getServiceName();
         holder.getServiceNameTextView().setText(serviceName);
-        Drawable serviceImage = service.getServiceImage();
-        holder.getServiceImage().setBackground(serviceImage);
+//        String  serviceImage = service.getServiceImage();
+//        holder.getServiceImage().setText(serviceImage);
         String servicePrice = service.getServicePrice();
         holder.getServicePriceTextView().setText(servicePrice);
         RadioButton serviceRadioBtn = holder.getServiceRadioBtn();
@@ -75,7 +74,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
                 actual = service;
                 notifyItemChanged(positionToRefresh);
             }
-            onChooseServiceDtoListener.setActualChoose(service);
+            onChooseLashExtDtoListener.setActualChoose(service);
 
             notifyItemChanged(position);
 
@@ -87,8 +86,9 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceViewHolder> {
         return serviceList.size();
     }
 
-    public void setServiceList(List<StyleDto> serviceList) {
+    public void setServiceList(List<LashExt> serviceList) {
         this.serviceList = serviceList;
+        notifyDataSetChanged();
 
     }
 }

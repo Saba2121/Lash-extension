@@ -27,18 +27,18 @@ public class GalleryActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.galleryRecyclerView);
         GalleryAdapter galleryAdapter = new GalleryAdapter();
         List<GalleryDto> allGallery = Arrays.asList(
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_1)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_2)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_3)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_4)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_5)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_6)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_7)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_8)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_9)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_10)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_11)),
-                new GalleryDto(getResources().getDrawable(R.drawable.gallery_12)));
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_1)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_2)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_3)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_4)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_5)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_6)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_7)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_8)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_9)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_10)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_11)),
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_12)));
 
         galleryAdapter.setGalleryList(allGallery);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -55,7 +55,7 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
     public void openLashServicesActivity() {
-        Intent intent = new Intent(this, LashServicesActivity.class);
+        Intent intent = new Intent(this, LashExtActivity.class);
         startActivity(intent);
     }
 

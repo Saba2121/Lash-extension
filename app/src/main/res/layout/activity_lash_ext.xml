@@ -85,7 +85,7 @@
         android:layout_width="335dp"
         android:layout_height="265dp"
         android:scaleType="center"
-        android:background="@drawable/lash_service"
+        android:background="@drawable/lash_ext"
         app:layout_constraintBottom_toTopOf="@id/contactBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

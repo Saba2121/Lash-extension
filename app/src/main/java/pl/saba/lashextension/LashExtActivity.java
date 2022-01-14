@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.saba.lashextension.R;
 
-public class LashServicesActivity extends AppCompatActivity {
+public class LashExtActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lash_services);
+        setContentView(R.layout.activity_lash_ext);
 
         Button naturalEffect = findViewById(R.id.naturalEffectBtn);
         Button lightVolume = findViewById(R.id.lightVolumeBtn);
@@ -33,7 +33,7 @@ public class LashServicesActivity extends AppCompatActivity {
     }
 
     public void openChooseServiceActivity(EffectType effectType) {
-        Intent intent = new Intent(this, ChooseServiceActivity.class);
+        Intent intent = new Intent(this, ChooseLashExtActivity.class);
         intent.putExtra("effectType", effectType.name());
         startActivity(intent);
     }

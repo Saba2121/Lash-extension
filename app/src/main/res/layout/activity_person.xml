@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/login_background"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context="pl.saba.lashextension.PersonActivity">

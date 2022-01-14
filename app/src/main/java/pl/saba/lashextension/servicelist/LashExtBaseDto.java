@@ -1,11 +1,11 @@
 package pl.saba.lashextension.servicelist;
 
-public class ServiceBaseDto {
+public class LashExtBaseDto {
     private String serviceName;
     private String servicePrice;
 
 
-    public ServiceBaseDto(String serviceName, String servicePrice) {
+    public LashExtBaseDto(String serviceName, String servicePrice) {
 
         this.serviceName = serviceName;
         this.servicePrice = servicePrice;
