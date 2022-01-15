@@ -60,7 +60,6 @@ public class LashExtAdapter extends RecyclerView.Adapter<LashExtViewHolder> {
         // set bitmap on imageView
         holder.getServiceImage().setImageBitmap(bitmap);
 
-
         String servicePrice = service.getServicePrice();
         holder.getServicePriceTextView().setText(servicePrice);
         RadioButton serviceRadioBtn = holder.getServiceRadioBtn();
