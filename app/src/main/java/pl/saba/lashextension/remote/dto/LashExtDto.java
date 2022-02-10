@@ -2,47 +2,53 @@ package pl.saba.lashextension.remote.dto;
 
 import pl.saba.lashextension.EffectType;
 
+
 public class LashExtDto {
 
-    private String serviceName;
-    private String serviceImage;
-    private String servicePrice;
-    private String serviceTime;
-    private String serviceVariant;
+    private String lashExtName;
+    private String lashExtImageBase64;
+    private String lashExtPrice;
+    private String lashExtTime;
+    private String lashExtVariant;
     private EffectType effectType;
 
 
-    public LashExtDto(String serviceName, String servicePrice,
-                      String serviceTime, String serviceVariant, EffectType effectType) {
-        this.serviceName = serviceName;
-        this.servicePrice = servicePrice;
-        this.serviceTime = serviceTime;
+    public LashExtDto(String lashExtName, String lashExtImageBase64, String lashExtPrice,
+                      String lashExtTime, String lashExtVariant, EffectType effectType) {
+
+        this.lashExtName = lashExtName;
+        this.lashExtImageBase64 = lashExtImageBase64;
+        this.lashExtPrice = lashExtPrice;
+        this.lashExtTime = lashExtTime;
+        this.lashExtVariant = lashExtVariant;
         this.effectType = effectType;
-        this.serviceVariant = serviceVariant;
+
 
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getLashExtName() {
+        return lashExtName;
     }
 
-    public String getServicePrice() {
-        return servicePrice;
+    public String getLashExtImage() {
+        return lashExtImageBase64;
     }
 
-    public String getServiceTime() {
-        return serviceTime;
+    public String getLashExtPrice() {
+        return lashExtPrice;
+    }
+
+    public String getLashExtTime() {
+        return lashExtTime;
+    }
+
+    public String getLashExtVariant() {
+        return lashExtVariant;
     }
 
     public EffectType getEffectType() {
         return effectType;
     }
 
-    public String getServiceVariant() {
-        return serviceVariant;
-    }
 
-    public String getServiceImage() {
-        return serviceImage;
-    }
 }

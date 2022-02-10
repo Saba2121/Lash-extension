@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/serviceName"
+            android:id="@+id/lashExtName"
             android:layout_width="70dp"
             android:layout_height="80dp"
             android:layout_marginStart="1dp"
@@ -27,7 +27,7 @@
             tools:text="1:1" />
 
         <ImageView
-            android:id="@+id/serviceImage"
+            android:id="@+id/lashExtImage"
             android:layout_width="170dp"
             android:layout_height="135dp"
             android:layout_marginStart="75dp" />
@@ -44,7 +44,7 @@
             tools:text="120 pln" />
 
         <TextView
-            android:id="@+id/serviceTime"
+            android:id="@+id/lashExtTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="255dp"
@@ -56,7 +56,7 @@
             tools:text="Approx.120 min" />
 
         <TextView
-            android:id="@+id/serviceVariant"
+            android:id="@+id/lashExtVariant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="320dp"
@@ -68,7 +68,7 @@
 
 
         <RadioButton
-            android:id="@+id/serviceRadioBtn"
+            android:id="@+id/lashExtRadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="285dp"

@@ -2,7 +2,9 @@ package pl.saba.lashextension;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,11 +31,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ChooseLashExtActivity extends AppCompatActivity implements OnChooseLashExtDtoListener {
     private LashExt actualChoose = null;
     private Button makeABooking;
+    private TextView textView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lash_ext_choose);
+
+        textView = findViewById(R.id.textView);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:8080")
@@ -45,7 +50,7 @@ public class ChooseLashExtActivity extends AppCompatActivity implements OnChoose
         EffectType effectType = EffectType.valueOf(effectTypeString);
 
         makeABooking = findViewById(R.id.makeABooking);
-        RecyclerView recyclerView = findViewById(R.id.servicesRecyclerView);
+        RecyclerView recyclerView = findViewById(R.id.lashExtRecyclerView);
         LashExtAdapter lashExtAdapter = new LashExtAdapter(this);
 
 //        List<Style> allServices = Arrays.asList(
@@ -71,23 +76,27 @@ public class ChooseLashExtActivity extends AppCompatActivity implements OnChoose
 
                     @Override
                     public void onNext(List<LashExtDto> lashExtDtos) {
+                        textView.setVisibility(View.GONE);
 
                         List<LashExt> cosmeticServices = lashExtDtos.stream()
-                                .map(lashExtDto -> new LashExt(lashExtDto.getEffectType().toString(),
-                                        lashExtDto.getServiceImage(),
-                                        lashExtDto.getServicePrice(),
-                                        lashExtDto.getServiceTime(),
-                                        lashExtDto.getEffectType(),
-                                        lashExtDto.getServiceVariant()))
+                                .map(lashExtDto -> new
+                                        LashExt(lashExtDto.getLashExtName(),
+                                        lashExtDto.getLashExtImage(),
+                                        lashExtDto.getLashExtPrice(),
+                                        lashExtDto.getLashExtTime(),
+                                        lashExtDto.getLashExtVariant(),
+                                        lashExtDto.getEffectType()))
                                 .collect(Collectors.toList());
-                        lashExtAdapter.setServiceList(cosmeticServices);
+                        lashExtAdapter.setLashExtList(cosmeticServices);
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        textView.setVisibility(View.VISIBLE);
                         e.printStackTrace();
                     }
+
 
                     @Override
                     public void onComplete() {
@@ -96,7 +105,7 @@ public class ChooseLashExtActivity extends AppCompatActivity implements OnChoose
                 });
 
         makeABooking.setEnabled(false);
-        makeABooking.setOnClickListener(v -> openCalendarActivity(effectType, actualChoose.getServiceVariant()));
+        makeABooking.setOnClickListener(v -> openCalendarActivity(effectType, actualChoose.getLashExtVariant()));
 
     }
 

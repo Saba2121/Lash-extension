@@ -1,48 +1,51 @@
 package pl.saba.lashextension.servicelist;
+
 import pl.saba.lashextension.EffectType;
 
 public class LashExt {
-    private final String serviceName;
-    private final String serviceImage;
-    private final String servicePrice;
-    private final String serviceTime;
+    private final String lashExtName;
+    private final String lashExtImage;
+    private final String lashExtPrice;
+    private final String lashExtTime;
+    private final String lashExtVariant;
     private final EffectType effectType;
-    private final String serviceVariant;
 
-    public LashExt(String serviceName, String serviceImage, String servicePrice, String serviceTime,
-                   EffectType effectType, String serviceVariant) {
-        this.serviceName = serviceName;
-        this.serviceImage = serviceImage;
-        this.servicePrice = servicePrice;
-        this.serviceTime = serviceTime;
+    public LashExt(String lashExtName, String lashExtImage, String lashExtPrice, String lashExtTime,
+                   String lashExtVariant, EffectType effectType) {
+
+        this.lashExtName = lashExtName;
+        this.lashExtImage = lashExtImage;
+        this.lashExtPrice = lashExtPrice;
+        this.lashExtTime = lashExtTime;
+        this.lashExtVariant = lashExtVariant;
         this.effectType = effectType;
-        this.serviceVariant = serviceVariant;
+
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getLashExtName() {
+        return lashExtName;
     }
 
 
-    public String getServiceImage() {
-        return this.serviceImage;
+    public String getLashExtImage() {
+        return this.lashExtImage;
     }
 
-    public String getServicePrice() {
-        return this.servicePrice;
+    public String getLashExtPrice() {
+        return this.lashExtPrice;
     }
 
-    public String getServiceTime() {
-        return this.serviceTime;
+    public String getLashExtTime() {
+        return this.lashExtTime;
+    }
+
+    public String getLashExtVariant() {
+        return this.lashExtVariant;
     }
 
     public EffectType getEffectType() {
         return this.effectType;
     }
 
-
-    public String getServiceVariant() {
-        return this.serviceVariant;
-    }
 
 }

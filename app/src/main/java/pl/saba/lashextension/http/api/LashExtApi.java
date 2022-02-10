@@ -12,5 +12,4 @@ public interface LashExtApi {
 
     @GET("/api/v1/styles")
     Observable<List<LashExtDto>> getLashExt(@Query("effect-type") EffectType effectType);
-
 }

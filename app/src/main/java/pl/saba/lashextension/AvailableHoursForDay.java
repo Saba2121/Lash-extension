@@ -1,10 +1,13 @@
 package pl.saba.lashextension;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.Date;
 import java.util.List;
 
 public class AvailableHoursForDay {
-
+    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
     private Date date;
     private List<Integer> availableHours;
 

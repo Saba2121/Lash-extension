@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/orderServiceTextView"
+        android:id="@+id/orderLashExtTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -35,10 +35,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceTextView" />
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtTextView" />
 
     <TextView
-        android:id="@+id/orderServiceDate"
+        android:id="@+id/orderLashExtDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -47,20 +47,20 @@
         android:textColor="@color/purple_200"
         android:textSize="25sp"
         android:layout_marginStart="55dp"
-        app:layout_constraintBottom_toTopOf="@id/orderServiceHour"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtHour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
         app:layout_constraintHorizontal_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/orderServiceDateValue"
+        android:id="@+id/orderLashExtDateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:textSize="18sp"
         android:layout_marginEnd="55dp"
-        app:layout_constraintBottom_toTopOf="@id/orderServiceHourValue"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtHourValue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -68,7 +68,7 @@
 
 
     <TextView
-        android:id="@+id/orderServiceHour"
+        android:id="@+id/orderLashExtHour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
@@ -77,25 +77,25 @@
         android:textColor="@color/purple_200"
         android:textSize="25sp"
         android:layout_marginStart="55dp"
-        app:layout_constraintBottom_toTopOf="@id/orderServiceType"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtType"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceDate" />
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtDate" />
 
     <TextView
-        android:id="@+id/orderServiceHourValue"
+        android:id="@+id/orderLashExtHourValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="55dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/orderServiceTypeValue"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtTypeValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceDateValue"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtDateValue"
         tools:text="hour" />
 
     <TextView
-        android:id="@+id/orderServiceType"
+        android:id="@+id/orderLashExtType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
@@ -104,12 +104,12 @@
         android:textColor="@color/purple_200"
         android:textSize="25sp"
         android:layout_marginStart="55dp"
-        app:layout_constraintBottom_toTopOf="@id/orderServiceVariant"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtVariant"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceHour" />
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtHour" />
 
     <TextView
-        android:id="@+id/orderServiceTypeValue"
+        android:id="@+id/orderLashExtTypeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -117,13 +117,13 @@
         android:textSize="18sp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="55dp"
-        app:layout_constraintBottom_toTopOf="@id/orderServiceVariantValue"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtVariantValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceHourValue"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtHourValue"
         tools:text="effect type 1:1" />
 
     <TextView
-        android:id="@+id/orderServiceVariant"
+        android:id="@+id/orderLashExtVariant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
@@ -134,10 +134,10 @@
         android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceType" />
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtType" />
 
     <TextView
-        android:id="@+id/orderServiceVariantValue"
+        android:id="@+id/orderLashExtVariantValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="55dp"
@@ -146,7 +146,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/orderServiceTypeValue"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtTypeValue"
         tools:text="variant - 2D" />
 
 

@@ -55,8 +55,8 @@ public class DateUtils {
 
         Date dateOfFirstCircle = calendar.getTime();
         long dayDifference = ChronoUnit.DAYS.between(dateOfFirstCircle.toInstant(), date.toInstant());
-
         if (dayDifference >= 0 && dayDifference <= 6) {
+
             Button button = buttons.get((int) dayDifference);
             button.setTextColor(Color.parseColor("#DD040A"));
         }

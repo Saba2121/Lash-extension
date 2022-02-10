@@ -11,46 +11,46 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.saba.lashextension.R;
 
 public class LashExtViewHolder extends RecyclerView.ViewHolder {
-    private final TextView serviceNameTextView;
-    private final ImageView serviceImage;
-    private final TextView servicePriceTextView;
-    private final RadioButton serviceRadioBtn;
-    private final TextView serviceTimeTextView;
-    private final TextView serviceVariant;
+    private final TextView lashExtNameTextView;
+    private final ImageView lashExtImage;
+    private final TextView lahExtPriceTextView;
+    private final RadioButton lashExtRadioBtn;
+    private final TextView lashExtTimeTextView;
+    private final TextView lashExtVariant;
 
     public LashExtViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        serviceNameTextView = itemView.findViewById(R.id.serviceName);
-        serviceImage = itemView.findViewById(R.id.serviceImage);
-        servicePriceTextView = itemView.findViewById(R.id.servicePrice);
-        serviceRadioBtn = itemView.findViewById(R.id.serviceRadioBtn);
-        serviceTimeTextView = itemView.findViewById(R.id.serviceTime);
-        serviceVariant = itemView.findViewById(R.id.serviceVariant);
+        lashExtNameTextView = itemView.findViewById(R.id.lashExtName);
+        lashExtImage = itemView.findViewById(R.id.lashExtImage);
+        lahExtPriceTextView = itemView.findViewById(R.id.servicePrice);
+        lashExtRadioBtn = itemView.findViewById(R.id.lashExtRadioBtn);
+        lashExtTimeTextView = itemView.findViewById(R.id.lashExtTime);
+        lashExtVariant = itemView.findViewById(R.id.lashExtVariant);
     }
 
-    public TextView getServiceNameTextView() {
-        return this.serviceNameTextView;
+    public TextView getLashExtNameTextView() {
+        return this.lashExtNameTextView;
     }
 
-    public ImageView getServiceImage() {
-        return this.serviceImage;
+    public ImageView getLashExtImage() {
+        return this.lashExtImage;
     }
 
-    public TextView getServicePriceTextView() {
-        return this.servicePriceTextView;
+    public TextView getLahExtPriceTextView() {
+        return this.lahExtPriceTextView;
     }
 
-    public RadioButton getServiceRadioBtn() {
-        return this.serviceRadioBtn;
+    public RadioButton getLashExtRadioBtn() {
+        return this.lashExtRadioBtn;
     }
 
-    public TextView getServiceTimeTextView() {
-        return this.serviceTimeTextView;
+    public TextView getLashExtTimeTextView() {
+        return this.lashExtTimeTextView;
     }
 
-    public TextView getServiceVariant() {
-        return this.serviceVariant;
+    public TextView getLashExtVariant() {
+        return this.lashExtVariant;
     }
 }
 

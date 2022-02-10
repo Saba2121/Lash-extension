@@ -1,19 +1,22 @@
 package pl.saba.lashextension;
 
 import java.time.temporal.ChronoUnit;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 public class DayCollection {
 
-    private List<Date> holidays = Arrays.asList(new Date(1638979117000L + (3 * 24 * 60 * 60 * 1000)));
-    private List<AvailableHoursForDay> hoursForDayList = Arrays.asList(
+    private List<Date> holidays;
+    private List<AvailableHoursForDay> hoursForDayList;
 
-            new AvailableHoursForDay(new Date(), Arrays.asList(8, 10)),
-            new AvailableHoursForDay(new Date(System.currentTimeMillis() + (24 * 60 * 60 * 1000)), Arrays.asList(4, 6))
-    );
 
+    public void setHolidays(List<Date> holidays) {
+        this.holidays = holidays;
+    }
+
+    public void setHoursForDayList(List<AvailableHoursForDay> hoursForDayList) {
+        this.hoursForDayList = hoursForDayList;
+    }
 
     public List<Date> getHolidays() {
         return holidays;

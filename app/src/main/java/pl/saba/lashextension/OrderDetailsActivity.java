@@ -19,10 +19,10 @@ public class OrderDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
 
-        TextView value = findViewById(R.id.orderServiceTypeValue);
-        TextView valueDate = findViewById(R.id.orderServiceDateValue);
-        TextView valueTime = findViewById(R.id.orderServiceHourValue);
-        TextView valueVariant = findViewById(R.id.orderServiceVariantValue);
+        TextView value = findViewById(R.id.orderLashExtTypeValue);
+        TextView valueDate = findViewById(R.id.orderLashExtDateValue);
+        TextView valueTime = findViewById(R.id.orderLashExtHourValue);
+        TextView valueVariant = findViewById(R.id.orderLashExtVariantValue);
         Button submit = findViewById(R.id.submitBtn);
 
         String effectTypeString = getIntent().getStringExtra("effectType");

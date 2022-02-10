@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toStartOf="@id/megaVolumeBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/naturalEffectBtn"
-        app:layout_constraintBottom_toTopOf="@id/serviceImg" />
+        app:layout_constraintBottom_toTopOf="@id/lashExtImg" />
 
     <Button
         android:id="@+id/megaVolumeBtn"
@@ -78,10 +78,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/kimEffectBtn"
         app:layout_constraintTop_toBottomOf="@id/lightVolumeBtn"
-        app:layout_constraintBottom_toTopOf="@id/serviceImg" />
+        app:layout_constraintBottom_toTopOf="@id/lashExtImg" />
 
     <ImageView
-        android:id="@+id/serviceImg"
+        android:id="@+id/lashExtImg"
         android:layout_width="335dp"
         android:layout_height="265dp"
         android:scaleType="center"
@@ -107,7 +107,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintEnd_toStartOf="@id/contactBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/serviceImg"
+        app:layout_constraintTop_toBottomOf="@id/lashExtImg"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
@@ -125,7 +125,7 @@
         android:theme="@style/ButtonStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/galleryBtn"
-        app:layout_constraintTop_toBottomOf="@id/serviceImg"
+        app:layout_constraintTop_toBottomOf="@id/lashExtImg"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

@@ -17,6 +17,17 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+import pl.saba.lashextension.http.api.LashExtWorkTimeApi;
+import pl.saba.lashextension.remote.dto.WorkTimeDto;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static java.lang.String.valueOf;
 import static pl.saba.lashextension.CalendarActivityHelper.countNumberOfDayInCircle;
@@ -34,6 +45,13 @@ public class CalendarActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+
 
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
@@ -60,49 +78,90 @@ public class CalendarActivity extends AppCompatActivity {
         sat = findViewById(R.id.satBtn);
         sun = findViewById(R.id.sunBtn);
 
-        DayCollection dayCollection = new DayCollection();
 
-        next.setOnClickListener(v -> {
-            calendar.add(Calendar.DATE, 7);
-            refreshDayButtons(calendar, monthAndYear, dayCollection);
-        });
+        LashExtWorkTimeApi lashExtWorkTimeApi = retrofit.create(LashExtWorkTimeApi.class);
+        lashExtWorkTimeApi.getWorkTime()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<WorkTimeDto>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-        previous.setOnClickListener(v -> {
-            if (canClickPreviousButton(calendar)) {
-                calendar.add(Calendar.DATE, -7);
-                refreshDayButtons(calendar, monthAndYear, dayCollection);
-            }
-        });
+                    }
 
-        calendar = Calendar.getInstance();
-        Integer dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        calendar.setTime(new Date());
-        calendar.add(Calendar.DATE, -dayOfWeek + 2);
-        System.out.println("data = " + calendar.getTime());
+                    @Override
+                    public void onNext(WorkTimeDto workTimeDto) {
 
-        mon.setOnClickListener(v -> refreshAvailableHours(0, dayCollection));
-        tue.setOnClickListener(v -> refreshAvailableHours(1, dayCollection));
-        wed.setOnClickListener(v -> refreshAvailableHours(2, dayCollection));
-        thu.setOnClickListener(v -> refreshAvailableHours(3, dayCollection));
-        fri.setOnClickListener(v -> refreshAvailableHours(4, dayCollection));
-        sat.setOnClickListener(v -> refreshAvailableHours(5, dayCollection));
-        sun.setOnClickListener(v -> refreshAvailableHours(6, dayCollection));
+                        DayCollection dayCollection = new DayCollection();
+                        dayCollection.setHolidays(workTimeDto.getHolidayDates());
 
-        refreshDayButtons(calendar, monthAndYear, dayCollection);
+                        List<AvailableHoursForDay> availableHoursForDay = workTimeDto.getAvailableHours().stream()
+                                .map(availableHoursDto -> new AvailableHoursForDay(availableHoursDto.getDate(),
+                                        availableHoursDto.getHours()))
+                                .collect(Collectors.toList());
+                        dayCollection.setHoursForDayList(availableHoursForDay);
 
-        setTimeOnControls(eight);
-        setTimeOnControls(ten);
-        setTimeOnControls(twelve);
-        setTimeOnControls(two);
-        setTimeOnControls(four);
-        setTimeOnControls(six);
+                        next.setOnClickListener(v -> {
+                            calendar.add(Calendar.DATE, 7);
+                            refreshDayButtons(calendar, monthAndYear, dayCollection);
+                        });
 
-        dialog.setOnClickListener(v -> {
-            openDialogActivity();
-        });
+                        previous.setOnClickListener(v -> {
+                            if (canClickPreviousButton(calendar)) {
+                                calendar.add(Calendar.DATE, -7);
+                                refreshDayButtons(calendar, monthAndYear, dayCollection);
+                            }
+                        });
 
-        bookNow.setOnClickListener(v ->
-                openPersonActivity(effectType, dateString, timeString, variant));
+                        calendar = Calendar.getInstance();
+                        Integer dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+                        long ms = System.currentTimeMillis();
+                        ms = ms - ms % (24 * 60 * 60 * 1000);
+                        calendar.setTime(new Date(ms));
+
+                        calendar.add(Calendar.DATE, -dayOfWeek + 2);
+                        System.out.println("data = " + calendar.getTime());
+
+                        mon.setOnClickListener(v -> refreshAvailableHours(0, dayCollection));
+                        tue.setOnClickListener(v -> refreshAvailableHours(1, dayCollection));
+                        wed.setOnClickListener(v -> refreshAvailableHours(2, dayCollection));
+                        thu.setOnClickListener(v -> refreshAvailableHours(3, dayCollection));
+                        fri.setOnClickListener(v -> refreshAvailableHours(4, dayCollection));
+                        sat.setOnClickListener(v -> refreshAvailableHours(5, dayCollection));
+                        sun.setOnClickListener(v -> refreshAvailableHours(6, dayCollection));
+
+                        refreshDayButtons(calendar, monthAndYear, dayCollection);
+
+                        setTimeOnControls(eight);
+                        setTimeOnControls(ten);
+                        setTimeOnControls(twelve);
+                        setTimeOnControls(two);
+                        setTimeOnControls(four);
+                        setTimeOnControls(six);
+
+                        dialog.setOnClickListener(v -> {
+                            openDialogActivity();
+                        });
+
+                        bookNow.setOnClickListener(v ->
+                                openPersonActivity(effectType, dateString, timeString, variant));
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
     }
 
     public void openDialogActivity() {
