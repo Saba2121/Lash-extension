@@ -50,7 +50,6 @@ public class LashExtAdapter extends RecyclerView.Adapter<LashExtViewHolder> {
         String lashExtName = lashExt.getLashExtName();
         holder.getLashExtNameTextView().setText(lashExtName);
 
-
         String lashExtImage = lashExt.getLashExtImage();
         Bitmap bitmap = ImageBase64Utils.getImageInBase64(lashExtImage);
         holder.getLashExtImage().setImageBitmap(bitmap);

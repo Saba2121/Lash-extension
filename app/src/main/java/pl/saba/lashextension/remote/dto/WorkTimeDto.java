@@ -6,9 +6,9 @@ import java.util.List;
 public class WorkTimeDto {
 
     private List<Date> holidayDates;
-    private List<AvailableHoursDto> availableHours;
+    private List<AvailableHoursLongDto> availableHours;
 
-    public WorkTimeDto(List<Date> holidayDates, List<AvailableHoursDto> availableHours) {
+    public WorkTimeDto(List<Date> holidayDates, List<AvailableHoursLongDto> availableHours) {
         this.holidayDates = holidayDates;
         this.availableHours = availableHours;
     }
@@ -17,7 +17,7 @@ public class WorkTimeDto {
         return holidayDates;
     }
 
-    public List<AvailableHoursDto> getAvailableHours() {
+    public List<AvailableHoursLongDto> getAvailableHours() {
         return availableHours;
     }
 
@@ -25,7 +25,7 @@ public class WorkTimeDto {
         this.holidayDates = holidayDates;
     }
 
-    public void setAvailableHours(List<AvailableHoursDto> availableHours) {
+    public void setAvailableHours(List<AvailableHoursLongDto> availableHours) {
         this.availableHours = availableHours;
     }
 }

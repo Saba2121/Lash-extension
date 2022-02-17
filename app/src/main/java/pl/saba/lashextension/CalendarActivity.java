@@ -96,7 +96,7 @@ public class CalendarActivity extends AppCompatActivity {
                         dayCollection.setHolidays(workTimeDto.getHolidayDates());
 
                         List<AvailableHoursForDay> availableHoursForDay = workTimeDto.getAvailableHours().stream()
-                                .map(availableHoursDto -> new AvailableHoursForDay(availableHoursDto.getDate(),
+                                .map(availableHoursDto -> new AvailableHoursForDay(new Date(availableHoursDto.getDate()),
                                         availableHoursDto.getHours()))
                                 .collect(Collectors.toList());
                         dayCollection.setHoursForDayList(availableHoursForDay);
