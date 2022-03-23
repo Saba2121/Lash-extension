@@ -5,9 +5,10 @@ import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.DialogFragment;
 
-public class DialogActivity extends AppCompatDialogFragment {
+
+public class DialogActivity extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

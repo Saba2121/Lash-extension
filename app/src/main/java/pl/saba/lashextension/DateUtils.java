@@ -4,6 +4,7 @@ package pl.saba.lashextension;
 import android.graphics.Color;
 import android.widget.Button;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
@@ -13,9 +14,9 @@ import java.util.Locale;
 
 public class DateUtils {
 
-    public static String getDayAndMonth(Date date) {
+    public static String toPrettyDate(Date date) {
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM", Locale.ENGLISH);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd", Locale.ENGLISH);
         return simpleDateFormat.format(date);
     }
 
@@ -78,6 +79,20 @@ public class DateUtils {
 
         Date now = new Date();
         return now.getTime() <= calendar.getTime().getTime();
+    }
+
+    public static long toTimestamp(String date, String hour) {
+        try {
+            Date date1 = new SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.ENGLISH).parse(
+                    date + " " + hour);
+            return date1.getTime();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+            return 0;
+        }
+
     }
 
 

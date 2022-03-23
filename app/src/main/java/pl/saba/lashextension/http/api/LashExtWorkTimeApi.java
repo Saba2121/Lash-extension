@@ -8,6 +8,28 @@ public interface LashExtWorkTimeApi {
 
     @GET("/api/v1/work-time")
     Observable<WorkTimeDto> getWorkTime();
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -52,7 +52,6 @@ public class CalendarActivity extends AppCompatActivity {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
-
         String effectTypeString = getIntent().getStringExtra("effectType");
         EffectType effectType = EffectType.valueOf(effectTypeString);
         String variant = getIntent().getStringExtra("variant");
@@ -77,7 +76,6 @@ public class CalendarActivity extends AppCompatActivity {
         fri = findViewById(R.id.friBtn);
         sat = findViewById(R.id.satBtn);
         sun = findViewById(R.id.sunBtn);
-
 
         LashExtWorkTimeApi lashExtWorkTimeApi = retrofit.create(LashExtWorkTimeApi.class);
         lashExtWorkTimeApi.getWorkTime()
@@ -261,7 +259,7 @@ public class CalendarActivity extends AppCompatActivity {
                         }
                     });
         }
-        String prettyDate = DateUtils.getDayAndMonth(calendarCopy.getTime());
+        String prettyDate = DateUtils.toPrettyDate(calendarCopy.getTime());
         saveDate.setText(prettyDate);
         dateString = prettyDate;
         CalendarActivityHelper.lockOrUnlockButton(bookNow, timeString, dateString);
