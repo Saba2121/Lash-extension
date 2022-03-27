@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.saba.lashextension.R;
 
 public class PersonActivity extends AppCompatActivity {
-    private EditText name, lastName, numberPhone;
+    private EditText name, surname, numberPhone;
     private Button appointment;
 
     @Override
@@ -28,16 +28,15 @@ public class PersonActivity extends AppCompatActivity {
         EffectType effectType = EffectType.valueOf(effectTypeString);
 
         name = findViewById(R.id.nameEditText);
-        lastName = findViewById(R.id.lastNameEditText);
+        surname = findViewById(R.id.surnameEditText);
         numberPhone = findViewById(R.id.numberPhoneEditText);
         appointment = findViewById(R.id.appointmentBtn);
-
         appointment.setOnClickListener(v -> {
-            openOrderDetailsActivity(effectType, dateString, timeString, variant);
+            openOrderDetailsActivity(effectType, dateString, timeString, variant, name, surname, numberPhone);
         });
 
         name.addTextChangedListener(nameTextWatcher);
-        lastName.addTextChangedListener(nameTextWatcher);
+        surname.addTextChangedListener(nameTextWatcher);
         numberPhone.addTextChangedListener(nameTextWatcher);
     }
 
@@ -50,7 +49,7 @@ public class PersonActivity extends AppCompatActivity {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String nameInput = name.getText().toString().trim();
-            String lastNameInput = lastName.getText().toString().trim();
+            String lastNameInput = surname.getText().toString().trim();
             String numberPhoneInput = numberPhone.getText().toString().trim();
 
             appointment.setEnabled(!nameInput.isEmpty() && !lastNameInput.isEmpty() && !numberPhoneInput.isEmpty());
@@ -61,7 +60,8 @@ public class PersonActivity extends AppCompatActivity {
         }
     };
 
-    public void openOrderDetailsActivity(EffectType effectType, String dateString, String timeString, String variant) {
+    public void openOrderDetailsActivity(EffectType effectType, String dateString, String timeString,
+                                         String variant, EditText name, EditText surname, EditText numberPhone) {
         Intent intent = new Intent(this, OrderDetailsActivity.class);
         intent.putExtra("effectType", effectType.name());
         System.out.println(dateString);
@@ -69,6 +69,9 @@ public class PersonActivity extends AppCompatActivity {
         intent.putExtra("date", dateString);
         intent.putExtra("time", timeString);
         intent.putExtra("variant", variant);
+        intent.putExtra("name", name.getText().toString());
+        intent.putExtra("surname", surname.getText().toString());
+        intent.putExtra("numberPhone", numberPhone.getText().toString());
         startActivity(intent);
     }
 

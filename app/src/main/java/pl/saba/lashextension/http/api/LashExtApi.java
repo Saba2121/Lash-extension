@@ -6,7 +6,7 @@ import io.reactivex.Completable;
 import io.reactivex.Observable;
 import pl.saba.lashextension.EffectType;
 import pl.saba.lashextension.remote.dto.LashExtDto;
-import pl.saba.lashextension.remote.dto.VisitAddDto;
+import pl.saba.lashextension.remote.dto.VisitDto;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -18,5 +18,5 @@ public interface LashExtApi {
     Observable<List<LashExtDto>> getLashExt(@Query("effect-type") EffectType effectType);
 
     @POST("/api/v1/visits")
-    Completable addVisit(@Body VisitAddDto visitAddDto);
+    Completable addVisit(@Body VisitDto visitDto);
 }

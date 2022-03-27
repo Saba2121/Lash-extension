@@ -33,12 +33,12 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/lastNameEditText"
+        android:id="@+id/surnameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_baseline_perm_identity_24"
-        android:hint="@string/last_name"
+        android:hint="@string/surname"
         android:inputType="text"
         android:textColorHint="@color/black"
         android:textSize="20sp" />

@@ -12,7 +12,7 @@
         android:id="@+id/orderLashExtTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:padding="3dp"
         android:text="@string/order_summary"
         android:textSize="55sp"
@@ -29,54 +29,133 @@
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:padding="10dp"
-        android:theme="@style/TextStyle"
         android:text="@string/confirm_visit"
         android:textAllCaps="true"
         android:textSize="20sp"
+        android:layout_marginTop="11dp"
+        android:theme="@style/TextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderLashExtTextView" />
 
     <TextView
+        android:id="@+id/orderLashExtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/name2"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtSurname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView" />
+
+    <TextView
+        android:id="@+id/orderLashExtNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="55dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtSurnameValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
+        tools:text="name" />
+
+    <TextView
+        android:id="@+id/orderLashExtSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/surname2"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtPhoneNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtName" />
+
+    <TextView
+        android:id="@+id/orderLashExtSurnameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="55dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtPhoneNumberValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtNameValue"
+        tools:text="surname" />
+
+    <TextView
+        android:id="@+id/orderLashExtPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/number_phone2"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtSurname" />
+
+    <TextView
+        android:id="@+id/orderLashExtPhoneNumberValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="55dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/orderLashExtDateValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtSurnameValue"
+        tools:text="phone number" />
+
+    <TextView
         android:id="@+id/orderLashExtDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_marginStart="55dp"
         android:fontFamily="sans-serif-black"
+        android:gravity="center"
         android:text="@string/date"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
-        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderLashExtHour"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
-        app:layout_constraintHorizontal_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtPhoneNumber" />
 
     <TextView
         android:id="@+id/orderLashExtDateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="55dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:textSize="18sp"
-        android:layout_marginEnd="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderLashExtHourValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtPhoneNumberValue"
         tools:text="date" />
-
 
     <TextView
         android:id="@+id/orderLashExtHour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:text="@string/hour"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
-        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderLashExtType"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderLashExtDate" />
@@ -98,12 +177,12 @@
         android:id="@+id/orderLashExtType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:text="@string/effect_type"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
-        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderLashExtVariant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderLashExtHour" />
@@ -112,11 +191,11 @@
         android:id="@+id/orderLashExtTypeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="55dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:textSize="18sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="55dp"
         app:layout_constraintBottom_toTopOf="@id/orderLashExtVariantValue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderLashExtHourValue"
@@ -126,12 +205,12 @@
         android:id="@+id/orderLashExtVariant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:text="@string/variant"
         android:textColor="@color/purple_200"
         android:textSize="25sp"
-        android:layout_marginStart="55dp"
         app:layout_constraintBottom_toTopOf="@id/confirmationOrder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orderLashExtType" />
@@ -164,13 +243,13 @@
         app:layout_constraintBottom_toTopOf="@id/submitBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmVisitTextView" />
+        app:layout_constraintTop_toBottomOf="@id/orderLashExtVariant" />
 
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="55dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:padding="5dp"
