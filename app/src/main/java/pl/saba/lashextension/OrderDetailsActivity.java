@@ -38,18 +38,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
         TextView valueNumberPhone = findViewById(R.id.orderLashExtPhoneNumberValue);
         Button submit = findViewById(R.id.submitBtn);
 
-
-//        Bundle extras = getIntent().getExtras();
-//
-//        String  name = extras.getString("name");
-//        valueName.setText(name);
-//
-//        String  surname = extras.getString("surname");
-//        valueSurname.setText(surname);
-//
-//        String numberPhone = extras.getString("numberPhone");
-//        valueNumberPhone.setText(numberPhone);
-
         String name = getIntent().getStringExtra("name");
         valueName.setText(name);
 

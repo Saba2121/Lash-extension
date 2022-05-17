@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class DateUtils {
 
@@ -56,9 +57,10 @@ public class DateUtils {
 
         Date dateOfFirstCircle = calendar.getTime();
         long dayDifference = ChronoUnit.DAYS.between(dateOfFirstCircle.toInstant(), date.toInstant());
-        if (dayDifference >= 0 && dayDifference <= 6) {
 
+        if (dayDifference >= 0 && dayDifference <= 6) {
             Button button = buttons.get((int) dayDifference);
+            button.setEnabled(false);
             button.setTextColor(Color.parseColor("#DD040A"));
         }
     }
@@ -83,9 +85,9 @@ public class DateUtils {
 
     public static long toTimestamp(String date, String hour) {
         try {
-            Date date1 = new SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.ENGLISH).parse(
-                    date + " " + hour);
-            return date1.getTime();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.ENGLISH);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            return simpleDateFormat.parse(date + " " + hour).getTime();
 
         } catch (ParseException e) {
             e.printStackTrace();

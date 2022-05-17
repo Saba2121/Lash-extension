@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     android:orientation="vertical"
     android:padding="30dp"
@@ -21,13 +22,22 @@
         android:textColor="@color/purple_200"
         android:textSize="25sp" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username_text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/ic_baseline_perm_identity_24"
+        android:drawableStart="@drawable/ic_person"
         android:hint="@string/name"
+        android:background="@drawable/edit_text_style"
+        android:drawablePadding="12dp"
+        android:paddingEnd="12dp"
+        android:padding="11dp"
         android:inputType="text"
         android:textColorHint="@color/black"
         android:textSize="20sp" />
@@ -37,8 +47,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/ic_baseline_perm_identity_24"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="12dp"
+        android:paddingEnd="12dp"
         android:hint="@string/surname"
+        android:padding="11dp"
+        android:background="@drawable/edit_text_style"
         android:inputType="text"
         android:textColorHint="@color/black"
         android:textSize="20sp" />
@@ -49,9 +63,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_baseline_phone_24"
+        android:drawablePadding="12dp"
         android:hint="@string/number_phone"
+        android:background="@drawable/edit_text_style"
         android:inputType="phone"
+        android:paddingEnd="12dp"
+        android:padding="11dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="9"
         android:maxLength="9"
+        android:ems="10"
         android:textColorHint="@color/black"
         android:textSize="20sp" />
 

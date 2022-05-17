@@ -1,6 +1,5 @@
 package pl.saba.lashextension;
 
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -144,7 +143,6 @@ public class CalendarActivity extends AppCompatActivity {
                         bookNow.setOnClickListener(v ->
                                 openPersonActivity(effectType, dateString, timeString, variant));
 
-
                     }
 
                     @Override
@@ -158,8 +156,6 @@ public class CalendarActivity extends AppCompatActivity {
 
                     }
                 });
-
-
     }
 
     public void openDialogActivity() {

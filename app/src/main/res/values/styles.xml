@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/purple_200</item>
@@ -36,11 +36,4 @@
         <item name="android:fontFamily">cursive</item>
     </style>
 
-    <style name="CalendarButtonRedStyle" parent="Widget.AppCompat.Button">
-        <item name="colorPrimary">@color/red</item>
-    </style>
-
-    <style name="CalendarButtonGreenStyle" parent="Widget.AppCompat.Button">
-        <item name="colorPrimary">@color/green</item>
-    </style>
 </resources>

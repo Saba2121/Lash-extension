@@ -2,8 +2,6 @@ package pl.saba.lashextension;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -31,37 +29,38 @@ public class PersonActivity extends AppCompatActivity {
         surname = findViewById(R.id.surnameEditText);
         numberPhone = findViewById(R.id.numberPhoneEditText);
         appointment = findViewById(R.id.appointmentBtn);
+
         appointment.setOnClickListener(v -> {
-            openOrderDetailsActivity(effectType, dateString, timeString, variant, name, surname, numberPhone);
-        });
-
-        name.addTextChangedListener(nameTextWatcher);
-        surname.addTextChangedListener(nameTextWatcher);
-        numberPhone.addTextChangedListener(nameTextWatcher);
-    }
-
-    private TextWatcher nameTextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
             String nameInput = name.getText().toString().trim();
             String lastNameInput = surname.getText().toString().trim();
             String numberPhoneInput = numberPhone.getText().toString().trim();
 
-            appointment.setEnabled(!nameInput.isEmpty() && !lastNameInput.isEmpty() && !numberPhoneInput.isEmpty());
-        }
+            if (!Validator.isValidNameOrSurname(nameInput)) {
+                name.requestFocus();
+                name.setError("Field cannot be empty");
+                return;
 
-        @Override
-        public void afterTextChanged(Editable s) {
-        }
-    };
+            }
+            if (!Validator.isValidNameOrSurname(lastNameInput)) {
+                surname.requestFocus();
+                surname.setError("Field cannot be empty");
+                return;
+            }
+            if (!Validator.isValidPhoneNumber(numberPhoneInput)) {
+                numberPhone.requestFocus();
+                numberPhone.setError("");
+            }
+
+
+            openOrderDetailsActivity(effectType, dateString, timeString, variant, name.getText().toString(),
+                    surname.getText().toString(), numberPhone.getText().toString());
+        });
+
+    }
+
 
     public void openOrderDetailsActivity(EffectType effectType, String dateString, String timeString,
-                                         String variant, EditText name, EditText surname, EditText numberPhone) {
+                                         String variant, String name, String surname, String numberPhone) {
         Intent intent = new Intent(this, OrderDetailsActivity.class);
         intent.putExtra("effectType", effectType.name());
         System.out.println(dateString);
@@ -69,9 +68,9 @@ public class PersonActivity extends AppCompatActivity {
         intent.putExtra("date", dateString);
         intent.putExtra("time", timeString);
         intent.putExtra("variant", variant);
-        intent.putExtra("name", name.getText().toString());
-        intent.putExtra("surname", surname.getText().toString());
-        intent.putExtra("numberPhone", numberPhone.getText().toString());
+        intent.putExtra("name", name);
+        intent.putExtra("surname", surname);
+        intent.putExtra("numberPhone", numberPhone);
         startActivity(intent);
     }
 

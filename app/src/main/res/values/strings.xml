@@ -46,7 +46,7 @@
     <string name="book_appointment">Book appointment</string>
     <string name="name2">Name:</string>
     <string name="surname2">Surname:</string>
-    <string name="number_phone2">Phone number</string>
+    <string name="number_phone2">Phone number:</string>
     <string name="date">Date:</string>
     <string name="hour">Hour:</string>
     <string name="effect_type">Effect type:</string>
