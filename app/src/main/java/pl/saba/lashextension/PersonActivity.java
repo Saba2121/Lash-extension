@@ -35,22 +35,22 @@ public class PersonActivity extends AppCompatActivity {
             String lastNameInput = surname.getText().toString().trim();
             String numberPhoneInput = numberPhone.getText().toString().trim();
 
+
             if (!Validator.isValidNameOrSurname(nameInput)) {
                 name.requestFocus();
-                name.setError("Field cannot be empty");
+                name.setError("First name must contain letters and be more than 2 characters long");
                 return;
 
             }
             if (!Validator.isValidNameOrSurname(lastNameInput)) {
                 surname.requestFocus();
-                surname.setError("Field cannot be empty");
+                surname.setError("Surname must contain letters and be more than 2 characters long");
                 return;
             }
             if (!Validator.isValidPhoneNumber(numberPhoneInput)) {
                 numberPhone.requestFocus();
-                numberPhone.setError("");
+                numberPhone.setError("The phone number should contain 9 digits");
             }
-
 
             openOrderDetailsActivity(effectType, dateString, timeString, variant, name.getText().toString(),
                     surname.getText().toString(), numberPhone.getText().toString());

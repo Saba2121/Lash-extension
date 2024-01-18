@@ -2,12 +2,12 @@ package pl.saba.lashextension.remote.dto;
 
 import java.util.List;
 
-public class AvailableHoursLongDto {
+public class WorkHourDto {
 
     private Long dateTimeStamp;
     private List<Integer> hours;
 
-    public AvailableHoursLongDto(Long dateTimeStamp, List<Integer> hours) {
+    public WorkHourDto(Long dateTimeStamp, List<Integer> hours) {
         this.dateTimeStamp = dateTimeStamp;
         this.hours = hours;
     }

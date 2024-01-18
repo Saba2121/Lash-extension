@@ -3,12 +3,12 @@ package pl.saba.lashextension.remote.dto;
 import java.util.Date;
 import java.util.List;
 
-public class WorkTimeDto {
+public class ScheduleDto {
 
     private List<Date> holidayDates;
-    private List<AvailableHoursLongDto> availableHours;
+    private List<WorkHourDto> availableHours;
 
-    public WorkTimeDto(List<Date> holidayDates, List<AvailableHoursLongDto> availableHours) {
+    public ScheduleDto(List<Date> holidayDates, List<WorkHourDto> availableHours) {
         this.holidayDates = holidayDates;
         this.availableHours = availableHours;
     }
@@ -17,7 +17,7 @@ public class WorkTimeDto {
         return holidayDates;
     }
 
-    public List<AvailableHoursLongDto> getAvailableHours() {
+    public List<WorkHourDto> getAvailableHours() {
         return availableHours;
     }
 
@@ -25,7 +25,7 @@ public class WorkTimeDto {
         this.holidayDates = holidayDates;
     }
 
-    public void setAvailableHours(List<AvailableHoursLongDto> availableHours) {
+    public void setAvailableHours(List<WorkHourDto> availableHours) {
         this.availableHours = availableHours;
     }
 }

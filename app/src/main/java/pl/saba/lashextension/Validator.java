@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Validator {
 
     public static Boolean isValidNameOrSurname(String string) {
-        return validate("[a-zA-Z]{2}+", string);
+        return validate("[a-zA-Z]{2,}+", string);
 
     }
 

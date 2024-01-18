@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Lash_extension</string>
+    <string name="app_name">Lash Xtension</string>
     <string name="welcome_button">Start</string>
     <string name="eyelash_styling_services">Eyelash styling services</string>
     <string name="natural_effect">Natural effect</string>
@@ -11,13 +11,13 @@
     <string name="go_back">Go back</string>
     <string name="contact">Contact</string>
     <string name="choose_style">Choose the style you like</string>
-    <string name="make_booking">Make a booking</string>
+    <string name="make_booking">MAKE A BOOKING</string>
     <string name="opening_hours">Opening hours</string>
     <string name="phone_number">Phone number</string>
     <string name="number_number">(+48)606871226</string>
     <string name="email_">Email</string>
-    <string name="email_email">sabina-slosarczyk@o2.pl</string>
-    <string name="days_in_week">Monday - Friday</string>
+    <string name="email_email">lashesxtensions@gmail.com</string>
+    <string name="days_in_week">Monday - Sunday</string>
     <string name="hours_in_week">08:00 - 20:00</string>
     <string name="mon">Mon</string>
     <string name="tue">Tue</string>
@@ -42,7 +42,7 @@
     <string name="personal_details">Please enter your personal details</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
-    <string name="number_phone">Phone number</string>
+    <string name="number_phone">Number</string>
     <string name="book_appointment">Book appointment</string>
     <string name="name2">Name:</string>
     <string name="surname2">Surname:</string>

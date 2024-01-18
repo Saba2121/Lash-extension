@@ -64,7 +64,7 @@ public class LashExtAdapter extends RecyclerView.Adapter<LashExtViewHolder> {
 
         if (lashExt.equals(actual)) {
             lashExtRadioBtn.setChecked(true);
-            holder.getLashExtNameTextView().setTextColor(ContextCompat.getColor(context, R.color.purple_700));
+            holder.getLashExtNameTextView().setTextColor(ContextCompat.getColor(context, R.color.purple_500));
 
         } else {
             lashExtRadioBtn.setChecked(false);
@@ -80,7 +80,6 @@ public class LashExtAdapter extends RecyclerView.Adapter<LashExtViewHolder> {
                 notifyItemChanged(positionToRefresh);
             }
             onChooseLashExtDtoListener.setActualChoose(lashExt);
-
             notifyItemChanged(position);
 
         });

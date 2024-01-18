@@ -30,15 +30,11 @@ public class GalleryActivity extends AppCompatActivity {
                 new GalleryDto(getResources().getDrawable(R.drawable.lash_1)),
                 new GalleryDto(getResources().getDrawable(R.drawable.lash_2)),
                 new GalleryDto(getResources().getDrawable(R.drawable.lash_3)),
-                new GalleryDto(getResources().getDrawable(R.drawable.lash_4)),
                 new GalleryDto(getResources().getDrawable(R.drawable.lash_5)),
                 new GalleryDto(getResources().getDrawable(R.drawable.lash_6)),
-                new GalleryDto(getResources().getDrawable(R.drawable.lash_7)),
                 new GalleryDto(getResources().getDrawable(R.drawable.lash_8)),
                 new GalleryDto(getResources().getDrawable(R.drawable.lash_9)),
-                new GalleryDto(getResources().getDrawable(R.drawable.lash_10)),
-                new GalleryDto(getResources().getDrawable(R.drawable.lash_11)),
-                new GalleryDto(getResources().getDrawable(R.drawable.lash_12)));
+                new GalleryDto(getResources().getDrawable(R.drawable.lash_11)));
 
         galleryAdapter.setGalleryList(allGallery);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);

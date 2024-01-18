@@ -14,9 +14,9 @@ import retrofit2.http.Query;
 
 public interface LashExtApi {
 
-    @GET("/api/v1/styles")
-    Observable<List<LashExtDto>> getLashExt(@Query("effect-type") EffectType effectType);
+    @GET("/api/v1/android/styles")
+    Observable<List<LashExtDto>> getStyles(@Query("effect-type") EffectType effectType);
 
-    @POST("/api/v1/visits")
+    @POST("/api/v1/android/visits")
     Completable addVisit(@Body VisitDto visitDto);
 }

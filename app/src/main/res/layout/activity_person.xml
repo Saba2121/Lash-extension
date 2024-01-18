@@ -14,13 +14,14 @@
         android:id="@+id/personalDetailsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="57dp"
+        android:fontFamily="serif"
+        android:theme="@style/TextStyle"
         android:gravity="center"
         android:text="@string/personal_details"
-        android:textAllCaps="true"
+        android:textAllCaps="false"
         android:textColor="@color/purple_200"
-        android:textSize="25sp" />
+        android:textSize="32sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username_text_input_layout"
@@ -35,11 +36,12 @@
         android:drawableStart="@drawable/ic_person"
         android:hint="@string/name"
         android:background="@drawable/edit_text_style"
-        android:drawablePadding="12dp"
+        android:drawablePadding="6dp"
         android:paddingEnd="12dp"
         android:padding="11dp"
         android:inputType="text"
-        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
         android:textSize="20sp" />
 
     <EditText
@@ -48,13 +50,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_person"
-        android:drawablePadding="12dp"
+        android:drawablePadding="6dp"
         android:paddingEnd="12dp"
         android:hint="@string/surname"
         android:padding="11dp"
         android:background="@drawable/edit_text_style"
         android:inputType="text"
-        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
         android:textSize="20sp" />
 
     <EditText
@@ -63,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_baseline_phone_24"
-        android:drawablePadding="12dp"
+        android:drawablePadding="6dp"
         android:hint="@string/number_phone"
         android:background="@drawable/edit_text_style"
         android:inputType="phone"
@@ -73,7 +76,8 @@
         app:counterMaxLength="9"
         android:maxLength="9"
         android:ems="10"
-        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
         android:textSize="20sp" />
 
     <Button
@@ -81,9 +85,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="28dp"
-        android:enabled="false"
+        android:layout_marginTop="68dp"
+        android:enabled="true"
         android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:theme="@style/ButtonStyle"
         android:text="@string/book_appointment"
         android:textSize="18sp" />
 

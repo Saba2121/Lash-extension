@@ -23,7 +23,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import pl.saba.lashextension.http.api.LashExtWorkTimeApi;
-import pl.saba.lashextension.remote.dto.WorkTimeDto;
+import pl.saba.lashextension.remote.dto.ScheduleDto;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -46,7 +46,7 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_week_view);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080")
+                .baseUrl("http://34.250.102.2:7070")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -80,19 +80,19 @@ public class CalendarActivity extends AppCompatActivity {
         lashExtWorkTimeApi.getWorkTime()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<WorkTimeDto>() {
+                .subscribe(new Observer<ScheduleDto>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(WorkTimeDto workTimeDto) {
+                    public void onNext(ScheduleDto scheduleDto) {
 
                         DayCollection dayCollection = new DayCollection();
-                        dayCollection.setHolidays(workTimeDto.getHolidayDates());
+                        dayCollection.setHolidays(scheduleDto.getHolidayDates());
 
-                        List<AvailableHoursForDay> availableHoursForDay = workTimeDto.getAvailableHours().stream()
+                        List<AvailableHoursForDay> availableHoursForDay = scheduleDto.getAvailableHours().stream()
                                 .map(availableHoursDto -> new AvailableHoursForDay(new Date(availableHoursDto.getDate()),
                                         availableHoursDto.getHours()))
                                 .collect(Collectors.toList());

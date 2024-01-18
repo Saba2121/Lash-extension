@@ -75,7 +75,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         VisitDto visitDto = new VisitDto(name, surname, numberPhone, timestamp, effectType, variant);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080")
+                .baseUrl("http://34.250.102.2:7070")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

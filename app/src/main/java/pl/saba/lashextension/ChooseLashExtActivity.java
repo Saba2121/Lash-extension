@@ -41,7 +41,7 @@ public class ChooseLashExtActivity extends AppCompatActivity implements OnChoose
         textView = findViewById(R.id.textView);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080")
+                .baseUrl("http://34.250.102.2:7070")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -64,7 +64,7 @@ public class ChooseLashExtActivity extends AppCompatActivity implements OnChoose
         recyclerView.setAdapter(lashExtAdapter);
 
         LashExtApi lashExtApi = retrofit.create(LashExtApi.class);
-        lashExtApi.getLashExt(effectType)
+        lashExtApi.getStyles(effectType)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<LashExtDto>>() {

@@ -96,6 +96,9 @@ public class DateUtils {
         }
 
     }
+//    toTimestamp - trzeba przekonwertować tą datę i czas na timestampa.
+//    google - w jaki sposob przekonwertowac string do daty (String to Date in java)
+//    text konwertujemy na datę a z daty wyciągam Timestampa.
 
 
 }
